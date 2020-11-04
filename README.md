@@ -35,6 +35,8 @@
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1k5espNMz27Bz4dX3Puxk6FfYIN1K_7to97ORvlRSQ6c/edit#gid=0
 
+### テーブル定義書
+https://docs.google.com/spreadsheets/d/12dH_hzwtzXALE7hzrnb6iPMMWlVsFByG4Xu53JJ97II/edit#gid=0
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
