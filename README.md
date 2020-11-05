@@ -39,8 +39,8 @@ https://docs.google.com/spreadsheets/d/1k5espNMz27Bz4dX3Puxk6FfYIN1K_7to97ORvlRS
 https://docs.google.com/spreadsheets/d/12dH_hzwtzXALE7hzrnb6iPMMWlVsFByG4Xu53JJ97II/edit#gid=0
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
+- 言語：HTML,CSS,JavaScript,Ruby 2.6.3 ,SQL
+- フレームワーク：Ruby on Rails 5.2.4.4
 - JSライブラリ：jQuery
 - 仮想環境：Cloud9
 
