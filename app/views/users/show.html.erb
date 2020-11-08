@@ -1,0 +1,22 @@
+<div class="col-xs-6">
+  <div>
+    <%= attachment_image_tag(@user, :avatar, :fill, 320, 250, fallback: "no_image.png", format: "jpg") %><br>
+    <%= @user.name %>
+  </div>
+  <div>
+    <%= @user.introduction %>  
+  </div>
+  <div>
+    <%= link_to "", edit_user_path(@user), class:"fas fa-user-edit" %>
+  </div>
+</div>
+
+<div class="col-xs-6">
+  <table class="table table-hover">
+    <tr>
+      <% @commitments.each do |commitment| %>
+        <%= link_to commitment.room_name, commitment_path(commitment.id) %>
+      <% end %>
+    </tr>
+  </table>
+</div>
