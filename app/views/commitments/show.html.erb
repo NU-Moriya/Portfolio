@@ -1,0 +1,59 @@
+<div class="col-xs-12">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <%= @commitment.room_name %>  
+        </th>
+      <% if @commitment.liked_by?(current_user) %>
+        <th>
+          <%= link_to commitment_like_commitment_path(@commitment), method: :delete do %>
+            <i class="fas fa-heart"></i>
+            <%= @commitment.like_commitments.count %>
+          <% end %>
+        </th>
+      <% else %>
+        <th>
+          <%= link_to commitment_like_commitments_path(@commitment), method: :post do %>
+            <i class="far fa-heart"></i>
+            <%= @commitment.like_commitments.count %>
+          <% end %>
+        </th>
+      <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td>
+            <% link_to user_path(post.user) do %>
+              <%= attachment_image_tag(post.user, :avatar, :fill, 60, 60, fallback: "no_image.png") %><br>
+              <%= post.user.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to post.content, post_path(post) %>
+          </td>
+          <td>
+           
+            <%= attachment_image_tag(post, :image, :fill, 100, 100) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <%= form_with(model:[@post], local: true) do |f| %>
+        <tr>
+          <td>
+            <%= f.hidden_field :commitment_id, :value => @commitment.id %>
+  					<%= f.text_area :content, class:"form-control", placeholder:"こだわりをシェアする" %>
+  					<%= f.attachment_field :image, class:"form-control" %>
+  					<%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
+              <i class="far fa-paper-plane"></i>
+            <% end %>
+					<td>
+				</tr>
+			<% end %>
+    </tfoot>
+  </table>
+</div>

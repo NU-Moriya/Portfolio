@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_102724) do
+ActiveRecord::Schema.define(version: 2020_11_08_035853) do
 
   create_table "bravos", force: :cascade do |t|
     t.integer "post_id", null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_11_05_102724) do
   end
 
   create_table "commitments", force: :cascade do |t|
-    t.integer "post_id", null: false
+    t.integer "post_id"
     t.string "room_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 2020_11_05_102724) do
   create_table "entries", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "connect_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "like_commitments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "commitment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -101,7 +108,7 @@ ActiveRecord::Schema.define(version: 2020_11_05_102724) do
     t.string "account_id", null: false
     t.string "avatar_id"
     t.text "introduction"
-    t.integer "type", default: 0, null: false
+    t.integer "classification", default: 0, null: false
     t.boolean "admin", default: false, null: false
     t.boolean "is_valid", default: true, null: false
     t.datetime "created_at", null: false

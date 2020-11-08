@@ -1,0 +1,20 @@
+<div class="col-xs-4">
+  <%= form_with model:@commitment, local:true do |f| %>
+    <div class="field row">
+      <%= f.label :room_name, "こだわりルーム名" %><br>
+      <%= f.text_field :room_name, class: 'col-xs-12' %>
+    </div>
+    
+    <div class="actions row">
+      <%= f.submit "つくる", class: 'btn btn-primary col-xs-12' %>
+    </div>
+  <% end %>
+</div>
+
+<div class="col-xs-8">
+  <% @commitments.each do |commitment| %>
+    <div class="box">
+      <%= link_to commitment.room_name, commitment_path(commitment.id) %>
+    </div>
+  <% end %>
+</div>

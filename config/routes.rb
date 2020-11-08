@@ -13,12 +13,14 @@ Rails.application.routes.draw do
   resources :users, only:[:show, :update, :edit]
     namespace :admin do
       resources :users, only:[:index, :update]
-      get 'admin/users/search' => 'admin/users#search'
+      get 'users/search' => 'users#search'
     end
   get 'users/:id/quit' => 'users#quit'
   patch 'users/:id/invalid' => 'users#invalid'
   
-  resources :commitments, only:[:show, :index, :create]
+  resources :commitments, only:[:show, :index, :create] do
+    resources :like_commitments, only: [:create, :index, :destroy]
+  end
   get 'commitments/search' => 'commitments/search'
   
   resources :posts, except:[:new] do
