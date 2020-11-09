@@ -1,14 +1,19 @@
 <div class="col-xs-12">
   <div class="post_box">
     <p>
-      <% link_to user_path(@post.user) do %>
-        <%= attachment_image_tag(@post.user, :avatar, fill, 60, 60, fallback: "no_image.png") %>
+      <%= link_to user_path(@post.user) do %>
+        <%= attachment_image_tag(@post.user, :avatar, size: "60x60", fallback: "no_image.png") %>
         <%= @post.user.name %>
       <% end %>
     </p>
     <p>
       <%= @post.content %>
-      <%= attachment_image_tag(@post.image, :image, fill, 100, 100) %>
+      <%= attachment_image_tag(@post, :image, size: "100x100") %>
     </p>
   </div>
 </div>
+
+<% if @post.user.id == current_user.id %>
+	<%= link_to "", edit_post_path(@post), class:"btn btn-default fas fa-eraser" %>
+	<%= link_to "", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class:"btn btn-default fas fa-trash-alt" %>
+<% end %>

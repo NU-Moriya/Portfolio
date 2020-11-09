@@ -1,0 +1,8 @@
+<div class="col-xs-12">
+  <%= form_with(model:[@post], local: true) do |f| %>
+  	<%= f.text_area :content, class:"form-control", placeholder:"こだわりをシェアする" %>
+  	<%= f.attachment_field :image, class:"form-control" %>
+  	<%= f.submit "変更する" %>
+			
+  <% end %>
+</div>
