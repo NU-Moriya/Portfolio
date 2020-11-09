@@ -1,22 +1,50 @@
-<div class="col-xs-6">
-  <div>
-    <%= attachment_image_tag(@user, :avatar, :fill, 320, 250, fallback: "no_image.png", format: "jpg") %><br>
-    <%= @user.name %>
-  </div>
-  <div>
-    <%= @user.introduction %>  
-  </div>
-  <div>
-    <%= link_to "", edit_user_path(@user), class:"fas fa-user-edit" %>
-  </div>
-</div>
 
-<div class="col-xs-6">
-  <table class="table table-hover">
-    <tr>
-      <% @commitments.each do |commitment| %>
-        <%= link_to commitment.room_name, commitment_path(commitment.id) %>
-      <% end %>
-    </tr>
-  </table>
-</div>
+  <div class="row justify-content-center">
+    <div class="topic-name">
+      <h1>こだわりさん information</h1>
+    </div>
+  </div>
+  
+  <div class="row row justify-content-center mt-5 user-profile">
+    <div class="d-flex justify-content-around">
+      <div class="col-xs-6 mr-5">
+        <div>
+          <%= attachment_image_tag(@user, :avatar, size: "320x250", fallback: "no_image.png", format: "jpg") %>
+        </div>
+        <div class="user-name mt-2 mb-2">
+          <%= @user.name %>
+        </div>
+        <div class="user-id mb-3">
+          @<%= @user.account_id %>
+        </div>
+        <div class="about-me mb-4">
+          <i class="fas fa-bullhorn"></i> about me !!<br>
+          <%= @user.introduction %>  
+        </div>
+        <div>
+          <%= link_to "", edit_user_path(@user), class:"fas fa-user-edit" %>
+        </div>
+        </div>
+      </div>
+  
+      <div class="col-xs-6 ml-5">
+        <i class="fas fa-check">
+          <span>check!!</span>
+        </i>
+        <div class="border border-warning rounded">
+          <table class="table table-hover">
+            <tr>
+              <th>\ こだわりルーム一覧 /</th>
+            </tr>
+            <tr>
+              <td>
+                <% @commitments.each do |commitment| %>
+                  <%= link_to commitment.room_name, commitment_path(commitment.id) %>
+                <% end %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
