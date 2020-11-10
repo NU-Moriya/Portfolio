@@ -8,7 +8,7 @@ class CommitmentsController < ApplicationController
   def show
     @commitment = Commitment.find(params[:id])
     @post = Post.new
-    @posts = Post.all
+    @posts = @commitment.posts
   end
   
   def create
