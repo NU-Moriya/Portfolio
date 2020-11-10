@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @commitment = @post.commitment_id
   end
   
   def edit
@@ -29,9 +30,10 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    @post = Post.find(params[:id])  
+    @post = Post.find(params[:id]) 
+    @commitment = @post.commitment_id
     @post.destroy
-    redirect_to posts_path
+    redirect_to controller: :commitments, action: :show, id: @commitment
   end
   
   def search
@@ -42,7 +44,7 @@ class PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:content, :image)
+    params.require(:post).permit(:content, :image, :commitment_id)
   end
   
 end
