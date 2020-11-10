@@ -41,8 +41,12 @@
               <%= link_to post.content, post_path(post) %>
             </td>
             <td>
-             
               <%= attachment_image_tag(post, :image, size: "100x100") %>
+            </td>
+            <td>
+              <i class="fas fa-comments">
+                <%= post.post_comments.count %>
+              </i>
             </td>
           </tr>
         <% end %>

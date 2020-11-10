@@ -9,6 +9,7 @@ class CommitmentsController < ApplicationController
     @commitment = Commitment.find(params[:id])
     @post = Post.new
     @posts = @commitment.posts
+    
   end
   
   def create
