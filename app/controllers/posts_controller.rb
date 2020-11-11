@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     @commitment = @post.commitment_id
     @comment = PostComment.new
     @comments = @post.post_comments
+   
   end
   
   def edit

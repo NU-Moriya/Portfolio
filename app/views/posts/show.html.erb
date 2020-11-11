@@ -3,8 +3,25 @@
     <h1>Detail...</h1>
   </div>
 </div>
-<div>
+<div class="row comment">
   <i class="fas fa-comment"><%= @comments.count %></i>
+</div>
+<div class="row bravo">
+  <% if @post.bravo_by?(current_user) %>
+		<%= link_to post_bravo_path(@post), method: :delete do %>
+			<span>
+			  Bravo !! <i class="fas fa-hiking" style="color: #FF66CC;"></i>
+			  <%= @post.bravos.count %>
+			</span>
+		<% end %>
+	<% else %>
+		<%= link_to post_bravos_path(@post), method: :post do %>
+		  <span>
+			  Bravo !! <i class="fas fa-hiking"></i>
+			  <%= @post.bravos.count %>
+			</span>
+		<% end %>
+	<% end %>
 </div>
 <div class="row float-right">
   <% if @post.user.id == current_user.id %>
