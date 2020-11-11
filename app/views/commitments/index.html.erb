@@ -7,7 +7,14 @@
 </div>
 <div class="row">
   <div class="col-xs-4">
-    <div class="room_name">
+    <div class="row form_search">
+      <%= form_with url: commitments_search_path, method: :get, local: true do |f| %>
+        <%= f.label :content, "Room's keyword", class:"fas fa-search" %><br>
+        <%= f.text_field :content, placeholder:"キーワード" %><br>
+        <%= f.submit 'Go !!' %>
+      <% end %>
+    </div>
+    <div class="row room_name">
       <%= form_with model:@commitment, local:true do |f| %>
         <%= f.label :room_name, "New Room's name" %><br>
         <%= f.text_field :room_name, size:"30x2", class:'col-xs-12' %>

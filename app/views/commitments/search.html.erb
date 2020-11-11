@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+  <div class="topic-name">
+    <h1>Result Search for "<%= @content %>"
+      <i class="fas fa-person-booth"></i>
+    </h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-8">
+    <div class="row">
+      <% @commitments.each do |commitment| %>
+        <div class="col-xs-6 ml-5 mr-5 border">
+          <%= link_to commitment.room_name, commitment_path(commitment.id) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
