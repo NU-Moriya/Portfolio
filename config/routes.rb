@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get 'commitments/search' => 'commitments/search'
   
   resources :posts, except:[:new] do
-    resource :bravos, only:[:index, :create, :destroy]
+    resources :bravos, only:[:index, :create, :destroy]
     resources :post_comments, except:[:new, :index, :show]
   end
   get 'posts/search' => 'posts#search'
