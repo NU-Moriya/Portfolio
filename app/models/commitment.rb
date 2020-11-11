@@ -5,4 +5,8 @@ class Commitment < ApplicationRecord
   def liked_by?(user)
     like_commitments.where(user_id: user.id).exists?
   end
+  
+  def self.search_for(content)
+    Commitment.where(['room_name LIKE ?', "%#{content}%"])
+  end
 end

@@ -23,6 +23,8 @@ class CommitmentsController < ApplicationController
   end
   
   def search
+    @content = params[:content]
+    @commitments = Commitment.search_for(@content)
   end
   
   private

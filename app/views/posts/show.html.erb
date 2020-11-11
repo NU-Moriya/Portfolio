@@ -25,8 +25,8 @@
 </div>
 <div class="row float-right">
   <% if @post.user.id == current_user.id %>
-  	<%= link_to "", edit_post_path(@post), class:"btn btn-default fas fa-eraser" %>
-  	<%= link_to "", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class:"btn btn-default fas fa-trash-alt" %>
+  	<%= link_to "", edit_post_path(@post), class:"fas fa-eraser", style:"padding-right: 10px;" %> 
+  	<%= link_to "", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class:"fas fa-trash-alt" %>
   <% end %>
 </div>
 <div class="row mt-5 mb-5">

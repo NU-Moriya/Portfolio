@@ -39,7 +39,13 @@ class PostsController < ApplicationController
     redirect_to controller: :commitments, action: :show, id: @commitment
   end
   
-  def search
+  def search 
+    if params[:content].empty?
+    else
+      @content = params[:content]
+      @posts = Post.search_for(@content, params[:commitment_id].to_i)
+    end
+    @commitment = Commitment.find(params[:commitment_id])
   end
   
   def ranking
