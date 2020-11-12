@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'about' => 'homes#about'
   post 'guest_sign_in' => 'homes#new_guest'
   
-  resources :users, only:[:show, :update, :edit]
+  resources :users, only:[:show, :update, :edit, :index]
     namespace :admin do
       resources :users, only:[:index, :update]
       get 'admin/users/search' => 'admin/users#search'
