@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      user:  ユーザー
+    attributes:
+      user:
+        name: ユーザーネーム
+        account_id: アカウントID
+        encrypted_password: パスワード
+        reset_password_token: パスワード
+        email: メールアドレス
+        
