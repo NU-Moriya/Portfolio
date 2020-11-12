@@ -18,15 +18,18 @@ Rails.application.routes.draw do
   get 'users/:id/quit' => 'users#quit'
   patch 'users/:id/invalid' => 'users#invalid'
   
-  resources :commitments, only:[:show, :index, :create]
-  get 'commitments/search' => 'commitments/search'
-  
-  resources :posts, except:[:new] do
-    resource :bravos, only:[:index, :create, :destroy]
-    resources :post_comments, except:[:new, :index, :show]
+ get 'commitments/search' => 'commitments/search'
+  resources :commitments, only:[:show, :index, :create] do
+    resource :like_commitments, only: [:create, :destroy]
   end
+  
   get 'posts/search' => 'posts#search'
   get 'posts/ranking' => 'posts#ranking'
+  resources :posts, except:[:new] do
+    resources :bravos, only:[:index, :create, :destroy]
+    resources :post_comments, except:[:new, :index, :show]
+  end
+
   
   resources :connects, only:[:create, :show]
   
