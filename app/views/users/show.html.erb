@@ -20,8 +20,15 @@
         <i class="fas fa-bullhorn"></i> about me !!<br>
         <%= @user.introduction %>  
       </div>
-      <div>
-        <%= link_to "", edit_user_path(@user), class:"fas fa-user-edit" %>
+      <div class="row btn-field">
+        <% if @user.id == current_user.id %>
+          <%= link_to "", edit_user_path(@user), class:"fas fa-user-edit" %>
+        <% end %>
+      </div>
+      <div class="row btn-field">
+        <% if current_user.admin? %>
+          <%= link_to "User一覧へ", admin_users_path, class:"btn btn-outline-secondary" %>
+        <% end %>
       </div>
     </div>
   </div>

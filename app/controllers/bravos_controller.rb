@@ -1,4 +1,5 @@
 class BravosController < ApplicationController
+  before_action :authenticate_user!
   
   def create
     bravo= current_user.bravos.create(post_id: params[:post_id])

@@ -1,5 +1,6 @@
 class LikeCommitmentsController < ApplicationController
-    
+  before_action :authenticate_user!
+  
   def create
     commitment = Commitment.find(params[:commitment_id])
     like_commitment = current_user.like_commitments.new(commitment_id: commitment.id)

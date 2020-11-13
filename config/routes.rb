@@ -10,15 +10,16 @@ Rails.application.routes.draw do
   get 'about' => 'homes#about'
   post 'guest_sign_in' => 'homes#new_guest'
   
+  get 'users/quit' => 'users#quit'
+  patch 'users/invalid' => 'users#invalid'
   resources :users, only:[:show, :update, :edit, :index]
     namespace :admin do
+      patch 'users/invalid' => 'users#invalid'
+      get 'users/search' => 'users#search'
       resources :users, only:[:index, :update]
-      get 'admin/users/search' => 'admin/users#search'
     end
-  get 'users/:id/quit' => 'users#quit'
-  patch 'users/:id/invalid' => 'users#invalid'
   
- get 'commitments/search' => 'commitments/search'
+  get 'commitments/search' => 'commitments/search'
   resources :commitments, only:[:show, :index, :create] do
     resource :like_commitments, only: [:create, :destroy]
   end

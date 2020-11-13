@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:update, :edit, :quit, :invalid]
+
   
   def show
     @user = User.find(params[:id])
@@ -24,19 +26,26 @@ class UsersController < ApplicationController
   
   #退会手続き用画面を表示
   def quit
-    
+    @user = current_user
   end
   
   #退会手続き
   def invalid
-    @user = User.find(params[:id])
-    @user.id = current_user.id
+    @user = current_user
     @user.update(is_valid: false)
     reset_session
     redirect_to root_path
   end
   
   private
+  
+  def ensure_correct_user
+      @user = User.find(params[:id])
+      unless @user == current_user
+      redirect_to user_path(current_user)
+      end
+  end
+  
   def user_params
     params.require(:user).permit(:name, :account_id, :avatar, :introduction, :classification, :admin, :is_valid)
   end

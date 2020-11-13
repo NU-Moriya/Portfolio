@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2020_11_08_035853) do
     t.integer "classification", default: 0, null: false
     t.boolean "admin", default: false, null: false
     t.boolean "is_valid", default: true, null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", null: falsek 
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_users_on_account_id", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
