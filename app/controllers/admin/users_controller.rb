@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :admin_user
-  
+
   def index
     @users = User.all
   end
@@ -18,17 +18,19 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path
   end
   
+  def search
+    @account_id = params[:account_id]
+    if params[:account_id].empty?
+    else
+      @account_id = params[:account_id]
+      @users = User.search_for(@account_id)
+    end
+    
+  end
   
   private
     def admin_user
       redirect_to root_path unless current_user.admin?
-    end
-    
-    def ensure_correct_user
-      @user = User.find(params[:id])
-      unless @user == current_user
-      redirect_to user_path(current_user)
-      end
     end
     
     def user_params

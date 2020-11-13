@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+  <div class="topic-name">
+    <h1>Result Search for "<%= @account_id %>"
+      <i class="fas fa-users"></i>
+    </h1>
+  </div>
+</div>
+
+<div class="row">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+	    <th>User name</th>
+	    <th>Account ID</th>
+	    <th>Status</th>
+	    <th>Type</th>
+	  </tr>
+    </thead>
+    <% if @users.nil? %>
+      <p>該当するキーワードはありません</p>
+    <% else %>
+      <% if @users.empty? %>
+        <p>該当するキーワードはありません</p>
+      <% else %>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.account_id %></td>
+            <td>
+              <%= user.is_valid %>
+            <% if user.is_valid == "有効" && user.admin == false %>
+              <%= link_to "無効会員に変更", admin_users_invalid_path(user), class:"btn btn-outline-danger", method: :patch %>
+            <% end %>
+            </td>
+            <td>
+              <%= user.classification %>
+            <% if user.classification == "一般" && user.admin == false %>
+              <%= link_to "会員区分変更", admin_user_path(user), class:"btn btn-outline-success", method: :patch %>
+            <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+      <% end %>
+    <% end %>
+  </table>
+</div>
+<%= link_to "", admin_users_path, class:"fas fa-arrow-alt-circle-left" %>

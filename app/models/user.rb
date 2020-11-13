@@ -17,4 +17,8 @@ class User < ApplicationRecord
   
   enum classification: { 一般: 0, 法人: 1}
   enum is_valid: { 有効: true, 無効: false }
+  
+  def self.search_for(account_id)
+    User.where(['account_id LIKE ?', "%#{account_id}%"])
+  end
 end
