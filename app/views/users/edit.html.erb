@@ -29,6 +29,11 @@
       		<%= f.submit "変更する" %>
       	</div>
       <% end %>
-      <%= link_to "", user_path(@user), class:"fas fa-arrow-alt-circle-left" %>
+        <div>
+          <%= link_to "", user_path(@user), class:"fas fa-arrow-alt-circle-left" %>
+        </div>
+        <div class="quit mt-4">
+        	  <%= link_to "アカウントの削除はこちらから", users_quit_path(@user), class:"btn btn-outline-danger" %>
+        </div>
   </div>
 </div>
