@@ -1,0 +1,35 @@
+<div class="row admin_index">
+  <h1>Users 一覧</h1>
+</div>
+<div class="row justify-content-center">
+  <table class="table table-hover">
+    <thead>
+	  <tr>
+	    <th>User name</th>
+	    <th>Account ID</th>
+	    <th>Status</th>
+	    <th>Type</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.account_id %></td>
+          <td>
+            <%= user.is_valid %>
+          <% if user.is_valid == "有効" && user.admin == false %>
+            <%= link_to "無効会員に変更", admin_users_invalid_path(user), class:"btn btn-outline-danger", method: :patch %>
+          <% end %>
+          </td>
+          <td>
+            <%= user.classification %>
+          <% if user.classification == "一般" && user.admin == false %>
+            <%= link_to "会員区分変更", admin_user_path(user), class:"btn btn-outline-success", method: :patch %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

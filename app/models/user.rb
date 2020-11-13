@@ -14,4 +14,7 @@ class User < ApplicationRecord
   
   validates :account_id, presence: true, length: {maximum: 20, minimum: 1}, uniqueness: true
   validates :name, presence: true, length: {maximum: 20, minimum: 1}
+  
+  enum classification: { 一般: 0, 法人: 1}
+  enum is_valid: { 有効: true, 無効: false }
 end

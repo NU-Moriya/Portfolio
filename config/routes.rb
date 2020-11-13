@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   patch 'users/invalid' => 'users#invalid'
   resources :users, only:[:show, :update, :edit, :index]
     namespace :admin do
+      patch 'users/invalid' => 'users#invalid'
+      get 'users/search' => 'users#search'
       resources :users, only:[:index, :update]
-      get 'users/search' => 'admin/users#search'
     end
   
   get 'commitments/search' => 'commitments/search'
