@@ -14,3 +14,49 @@ User.create!(name: "admin",
              password: ENV['ADMIN_PASSWORD'],
              password_confirmation: ENV['ADMIN_PASSWORD'] ,
              admin: true)
+             
+User.create!(name: "かぼちゃん",
+             account_id: "pumpkin",
+             classification: 0,
+             is_valid: true,
+             email: "b@b",
+             password: "000000",
+             password_confirmation: "000000",
+             admin: false)
+             
+User.create!(name: "インカのめざめ",
+             account_id: "potato",
+             classification: 0,
+             is_valid: true,
+             email: "c@c",
+             password: "000000",
+             password_confirmation: "000000",
+             admin: false)
+             
+User.create!(name: "のぶちん",
+             account_id: "nobuchi",
+             classification: 0,
+             is_valid: true,
+             email: "d@d",
+             password: "000000",
+             password_confirmation: "000000",
+             admin: false)
+             
+User.create!(name: "ずんちゃん",
+             account_id: "zunchin",
+             classification: 0,
+             is_valid: true,
+             email: "e@e",
+             password: "000000",
+             password_confirmation: "000000",
+             admin: false)
+
+User.create!(name: "ねっち",
+             account_id: "sakane",
+             classification: 0,
+             is_valid: true,
+             email: "f@f",
+             password: "000000",
+             password_confirmation: "000000",
+             admin: false)
+             

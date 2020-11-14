@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :post_comments
   has_many :bravos
   has_many :bravo_posts, through: :bravos, source: :post
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
   
   validates :account_id, presence: true, length: {maximum: 20, minimum: 1}, uniqueness: true
   validates :name, presence: true, length: {maximum: 20, minimum: 1}

@@ -20,6 +20,20 @@
         <i class="fas fa-bullhorn"></i> about me !!<br>
         <%= @user.introduction %>  
       </div>
+      <div class="dm-funciton mb-3">
+        <% unless @user.id == current_user.id %>
+          <% if @isConnect == true %>
+            <p class="user-show-room"><a href="/connects/<%= @connectId %>" class="btn btn-primary btn-lg">チャットへ</a>
+          <% else %>
+            <%= form_with @conect do |f| %>
+              <%= fields_for @entry do |e| %>
+                <%= e.hidden_field :user_id, value: @user.id %>
+              <% end %>
+              <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
       <div class="row btn-field">
         <% if @user.id == current_user.id %>
           <%= link_to "", edit_user_path(@user), class:"fas fa-user-edit" %>
