@@ -3,7 +3,7 @@
     <h1>こだわりさん information</h1>
   </div>
 </div>
-  
+
 <div class="row row justify-content-center mt-5 user-profile">
   <div class="d-flex justify-content-around">
     <div class="col-xs-6 mr-5">
@@ -18,14 +18,14 @@
       </div>
       <div class="about-me mb-4">
         <i class="fas fa-bullhorn"></i> about me !!<br>
-        <%= @user.introduction %>  
+        <%= @user.introduction %>
       </div>
       <div class="dm-funciton mb-3">
         <% unless @user.id == current_user.id %>
           <% if @isConnect == true %>
             <p class="user-show-room"><a href="/connects/<%= @connectId %>" class="btn btn-primary btn-lg">チャットへ</a>
           <% else %>
-            <%= form_with @conect do |f| %>
+            <%= form_for @connect do |f| %>
               <%= fields_for @entry do |e| %>
                 <%= e.hidden_field :user_id, value: @user.id %>
               <% end %>
@@ -37,6 +37,11 @@
       <div class="row btn-field">
         <% if @user.id == current_user.id %>
           <%= link_to "", edit_user_path(@user), class:"fas fa-user-edit" %>
+        <% end %>
+      </div>
+      <div class="row btn-field">
+        <% if @user.id == current_user.id %>
+          <%= link_to "", connects_path(@user), class:"far fa-envelope" %>
         <% end %>
       </div>
       <div class="row btn-field">

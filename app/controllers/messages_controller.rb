@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     else
       flash[:alert] = "メッセージ送信に失敗しました。"
     end
-　　redirect_to "/connects/#{@message.connect_id}"
+    redirect_to "/connects/#{@message.connect_id}"
   end
   
   

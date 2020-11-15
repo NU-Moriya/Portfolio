@@ -19,6 +19,17 @@ class ConnectsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+  
+  def index
+    @user = current_user
+    @currentEntries = current_user.entries
+    myConnectIds = []
 
+    @currentEntries.each do |entry|
+      myConnectIds << entry.connect.id
+    end
+                                                            #user_id が @user.idでないEntry
+    @anotherEntries = Entry.where(connect_id: myConnectIds).where('user_id != ?',@user.id)
+  end
 
 end

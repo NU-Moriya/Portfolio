@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end
 
   
-  resources :connects, only:[:create, :show]
+  resources :connects, only:[:create, :show, :index]
   
   post 'messages' => 'messages#create'
   
