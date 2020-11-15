@@ -6,6 +6,24 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @commitments = @user.commitments
+    # 以下、DM機能用のコントローラー記述
+    @currentUserEntry=Entry.where(user_id: current_user.id)
+    @userEntry=Entry.where(user_id: @user.id)
+    unless @user.id == current_user.id
+      @currentUserEntry.each do |current|
+        @userEntry.each do |user|
+          if current.connect_id == user.connect_id then
+            @isConnect = true
+            @connectId = current.connect_id
+          end
+        end
+      end
+      if @isConnect
+      else
+        @connect = Connect.new
+        @entry = Entry.new
+      end
+    end
   end
   
   def index

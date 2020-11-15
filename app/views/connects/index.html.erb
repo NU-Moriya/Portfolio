@@ -1,0 +1,5 @@
+<% @anotherEntries.each do |e| %>
+  <%= link_to connect_path(e.connect.id) do %>
+    <%= e.user.name %>とのDM<br>
+  <% end %>
+<% end %>
