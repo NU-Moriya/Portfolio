@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'guest_sign_in' => 'homes#new_guest'
   
   get 'users/quit/:id' => 'users#quit', as: 'user_quit'
-  patch 'users/invalid/:id' => 'users#invalid'
+  patch 'users/invalid' => 'users#invalid'
   resources :users, only:[:show, :update, :edit, :index]
     namespace :admin do
       patch 'users/invalid' => 'users#invalid'
