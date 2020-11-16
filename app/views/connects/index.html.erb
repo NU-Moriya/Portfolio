@@ -1,5 +1,29 @@
-<% @anotherEntries.each do |e| %>
-  <%= link_to connect_path(e.connect.id) do %>
-    <%= e.user.name %>とのDM<br>
-  <% end %>
-<% end %>
+<div class="row justify-content-center mt-5">
+  <div class="topic-name">
+    <h1>Connect Messages</h1>
+    <h6 class="text-center pt-5">
+      <i class="far fa-hand-point-right"></i>
+      <i class="far fa-heart"></i>
+      <i class="far fa-hand-point-left"></i>
+    </h6>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="offset-sm-3 col-sm-6">
+    <div class="border border-warning rounded ">
+      <table class="table table-hover">
+        <% @anotherEntries.each do |e| %>
+          <tr>
+            <td>
+              <%= link_to connect_path(e.connect.id) do %>
+                <%= attachment_image_tag(e.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %>
+                <%= e.user.name %>さん<br>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

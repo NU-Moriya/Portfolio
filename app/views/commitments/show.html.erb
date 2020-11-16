@@ -1,13 +1,16 @@
+<div class="row mt-n5">
+  <%= link_to "", commitments_path, class:"fas fa-arrow-alt-circle-left" %>
+</div>
 <div class="row justify-content-center">
   <div class="topic-name">
     <h1>
-      <%= "#{@commitment.room_name} 's room" %>  
+      <%= "#{@commitment.room_name} 's room" %>
     </h1>
   </div>
 </div>
 
-<div class="row justify-content-center mt-5">
-  <div class="topic-name">
+<div class="row mt-5">
+  <div class="col-sm-4 offset-2  topic-name">
     <h5>
       <% if @commitment.liked_by?(current_user) %>
         <%= @commitment.like_commitments.count %>人のこだわりさんが
@@ -21,33 +24,58 @@
           <i class="far fa-heart" style="color:red;"></i>
         <% end %>
         しています
-      <% end %>  
+      <% end %>
+    </h5>
+  </div>
+  <div class="col-sm-3 offset-3 topic-name">
+    <h5>
+      Bravo !! Ranking →
+      <%= link_to "", posts_ranking_path, class:"fas fa-hiking", style:"color: #FF66CC;" %>
+      <%= link_to "", posts_ranking_path, class:"fas fa-crown", style:"color: gold;" %>
     </h5>
   </div>
 </div>
 
-<div class="row row justify-content-center mt-5">
-  <div class="d-flex justify-content-around">
-    <div class="col-xs-3 form_search mr-5">
-      <%= form_with url: posts_search_path, method: :get, local: true do |f| %>
-        <%= f.hidden_field :commitment_id, :value => @commitment.id %>
-        <%= f.label :content, "Keyword", class:"fas fa-search" %><br>
-        <%= f.text_field :content, placeholder:"キーワード" %><br>
-        <%= f.submit 'Go !!' %>
-      <% end %>
+<div class="row">
+  <div class="col-sm-3 form_search">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= form_with url: posts_search_path, method: :get, local: true do |f| %>
+          <%= f.hidden_field :commitment_id, :value => @commitment.id %>
+          <i class="fas fa-search"></i>
+          <%= f.label :content, "Keyword" %><br>
+          <%= f.text_field :content, placeholder:"キーワード" %><br>
+          <%= f.submit 'Go !!' %>
+        <% end %>
+      </div>
     </div>
-    <div class="col-xs-9">
-      <table class="table table-hover border">
+    <div class="row mt-4">
+      <div class="col-sm-8">
+        <%= form_with(model:[@post], local: true) do |f| %>
+          <%= f.hidden_field :commitment_id, :value => @commitment.id %>
+  				<%= f.text_area :content, size:"15x8", class:"form-control", placeholder:"こだわりをシェアする" %>
+  				<%= f.attachment_field :image, class:"far fa-image" %>
+  				<%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
+            <i class="far fa-paper-plane"></i>
+          <% end %>
+  	    <% end %>
+  	  </div>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <div class="border border-warning rounded ">
+      <% if @posts.present? %>
+      <table class="table table-hover">
         <% @posts.each do |post| %>
           <tr>
-            <td>
+            <td class="post_user">
               <%= link_to user_path(post.user) do %>
-                <%= attachment_image_tag(post.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %><br>
+                <%= attachment_image_tag(post.user, :avatar, size: "30x30", class:"rounded-circle", fallback: "no_image.png") %><br>
                 <%= post.user.name %>
               <% end %>
             </td>
             <td>
-              <%= link_to post.content, post_path(post) %>
+              <%= link_to post.content, post_path(post), style:"color: black;" %>
             </td>
             <td>
               <%= attachment_image_tag(post, :image, size: "100x100") %>
@@ -58,27 +86,16 @@
               </i>
             </td>
             <td>
-              <i class="fas fa-hiking" style="color: #FF66CC;"></i>
-              <%= post.bravos.count %>
+              <i class="fas fa-hiking" style="color: #FF66CC;">
+                <%= post.bravos.count %>
+              </i>
             </td>
           </tr>
         <% end %>
+      <% else %>
+        <p class="text-center">こだわりをたくさん聞かせてください !!</p>
+      <% end %>
       </table>
     </div>
   </div>
 </div>
-<div class="row row justify-content-center mt-5">
-  <div class="d-flex justify-content-around">
-    <div class="col-xs-12">
-      <%= form_with(model:[@post], local: true) do |f| %>
-        <%= f.hidden_field :commitment_id, :value => @commitment.id %>
-				<%= f.text_area :content, class:"form-control", placeholder:"こだわりをシェアする" %><br>
-				<%= f.attachment_field :image, class:"form-control" %><br>
-				<%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
-          <i class="far fa-paper-plane"></i>
-        <% end %>
-	    <% end %>
-	  </div>
-  </div>
-</div>
-<%= link_to "", commitments_path, class:"fas fa-arrow-alt-circle-left" %>

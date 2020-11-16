@@ -1,35 +1,47 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center mb-5">
   <div class="topic-name">
     <h1>こだわりRoom' s
       <i class="fas fa-person-booth"></i>
     </h1>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-4">
-    <div class="row form_search">
+<div class="row mt-5">
+  <div class="col-sm-4">
+    <div class="row form_search mt-5">
       <%= form_with url: commitments_search_path, method: :get, local: true do |f| %>
-        <%= f.label :content, "Room's keyword", class:"fas fa-search" %><br>
+        <i class="fas fa-search"></i>
+        <%= f.label :content, "Room's keyword" %><br>
         <%= f.text_field :content, placeholder:"キーワード" %><br>
         <%= f.submit 'Go !!' %>
       <% end %>
     </div>
-    <div class="row room_name">
+    <div class="row room_name mt-5">
       <%= form_with model:@commitment, local:true do |f| %>
+        <i class="fas fa-magic"></i>
         <%= f.label :room_name, "New Room's name" %><br>
-        <%= f.text_field :room_name, size:"30x2", class:'col-xs-12' %>
-          <div class="row mt-3 ml-2">
-            <%= f.submit "つくる", class:'btn btn-primary col-xs-12' %>
-          </div>
+        <%= f.text_field :room_name, size:"28x2", class:'col-sm-12' %><br>
+        <%= f.submit "create !!" %>
       <% end %>
     </div>
   </div>
-  
-  <div class="col-xs-8">
+
+  <div class="col-sm-8 pt-3">
     <div class="row">
       <% @commitments.each do |commitment| %>
-        <div class="col-xs-6 ml-5 mr-5 border">
-          <%= link_to commitment.room_name, commitment_path(commitment.id) %>
+        <div class="col-sm-4">
+          <table class="table table-hover">
+            <div class=" border border-warning rounded">
+              <tr>
+                <th class="table-active"></th>
+              </tr>
+              <tr>
+                <td class="text-center">
+                  <i class="fas fa-door-open"></i>
+                  <%= link_to commitment.room_name, commitment_path(commitment.id) %>
+                </td>
+              </tr>
+            </div>
+          </table>
         </div>
       <% end %>
     </div>
