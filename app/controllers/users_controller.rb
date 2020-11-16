@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   end
 
   private
-
+  
   def ensure_correct_user
       user = User.find(params[:id])
       unless user == current_user
