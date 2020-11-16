@@ -1,46 +1,46 @@
 <div class="row">
-  <div class="topic-name mx-auto">
+  <div class="topic-name offset-sm-3 col-sm-6 offset-sm-3">
     <h1>こだわりさん information</h1>
   </div>
 </div>
 
 <div class = "container">
   <div class="row mt-5">
-    <div class="col-6">
+    <div class="col-sm-6">
       <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-sm-12 text-center">
           <%= attachment_image_tag(@user, :avatar, size: "250x250", class:"rounded-circle", fallback: "no_image.png", format: "jpg") %>
         </div>
-        <div class = "col-12 text-center">
+        <div class = "col-sm-12 text-center">
           <div class="user-name mt-2 mb-2">
             <%= @user.name %>
           </div>
         </div>
-        <div class ="col-12 text-center">
+        <div class ="col-sm-12 text-center">
           <div class="user-id mb-3">
             @<%= @user.account_id %>
           </div>
         </div>
-        <div class ="about-me col-6 offset-3">
+        <div class ="about-me col-sm-6 offset-sm-3">
           <i class="fas fa-bullhorn"></i> about me !!<br>
           <%= @user.introduction %>
         </div>
       </div>
       <div class="row mt-3">
         <% if @user.id == current_user.id %>
-          <div class="offset-3 col-3">
+          <div class="offset-sm-3 col-sm-3">
             <%= link_to "", connects_path(@user), class:"far fa-envelope fa-2x" %>
           </div>
-          <div class="col-3">
+          <div class="col-sm-3">
             <%= link_to "", edit_user_path(@user), class:"fas fa-user-edit fa-lg" %>
           </div>
         <% end %>
       </div>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="dm-funciton mb-3">
           <% unless @user.id == current_user.id %>
             <% if @isConnect == true %>
-              <p class="user-show-room"><a href="/connects/<%= @connectId %>" class="btn btn-primary btn-lg">チャットへ</a>
+              <p class="user-show-room"><a href="/connects/<%= @connectId %>" class="far fa-envelope fa-2x"></a>
             <% else %>
               <%= form_for @connect do |f| %>
                 <%= fields_for @entry do |e| %>
@@ -61,7 +61,7 @@
 
 
 
-    <div class="col-6">
+    <div class="col-sm-6">
       <i class="fas fa-check">
         <span>check!!</span>
       </i>

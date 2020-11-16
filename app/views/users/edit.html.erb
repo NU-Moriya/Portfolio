@@ -1,7 +1,8 @@
 <div class="row row justify-content-center mt-5 user-profile">
   <div class="col-xs-12">
-    <h2>プロフィール編集</h2>
-  
+    <h2>Edit...
+      <i class="fas fa-user-edit"></i>
+    </h2>
       <%= form_with model:@user, local: true do |f| %>
         <% if @user.errors.any? %>
           <div id="error_explanation">
@@ -14,19 +15,19 @@
       	</div>
         <% end %>
       	<div class="field mt-4">
-      		<%= f.label :name, "名前" %><br>
+      		<%= f.label :name, "Name" %><br>
       		<%= f.text_field :name, class: "name" %>
       	</div>
       	<div class="field mt-4">
-      		<%= f.label :avatar_id, "プロフィール写真" %><br>
+      		<%= f.label :avatar_id, "Profile image" %><br>
       		<%= f.attachment_field :avatar, class: "user_image" %>
       	</div>
       	<div class="field mt-4">
-      		<%= f.label :introduction, "自己紹介" %><br>
+      		<%= f.label :introduction, "About me" %><br>
       		<%= f.text_area :introduction, size: "35x5", class: "introduction" %>
       	</div>
       	<div class="actions mt-4 mb-4">
-      		<%= f.submit "変更する" %>
+      		<%= f.submit "Change !!" %>
       	</div>
       <% end %>
         <div>

@@ -9,8 +9,8 @@
   </div>
 </div>
 
-<div class="row justify-content-center mt-5">
-  <div class="topic-name">
+<div class="row mt-5">
+  <div class="col-sm-12 topic-name">
     <h5>
       <% if @commitment.liked_by?(current_user) %>
         <%= @commitment.like_commitments.count %>人のこだわりさんが
@@ -30,9 +30,9 @@
 </div>
 
 <div class="row">
-  <div class="col-3 form_search">
+  <div class="col-sm-3 form_search">
     <div class="row">
-      <div class="col-12">
+      <div class="col-sm-12">
         <%= form_with url: posts_search_path, method: :get, local: true do |f| %>
           <%= f.hidden_field :commitment_id, :value => @commitment.id %>
           <i class="fas fa-search"></i>
@@ -43,7 +43,7 @@
       </div>
     </div>
     <div class="row mt-4">
-      <div class="col-12">
+      <div class="col-sm-8">
         <%= form_with(model:[@post], local: true) do |f| %>
           <%= f.hidden_field :commitment_id, :value => @commitment.id %>
   				<%= f.text_area :content, size:"15x8", class:"form-control", placeholder:"こだわりをシェアする" %>
@@ -55,8 +55,9 @@
   	  </div>
     </div>
   </div>
-  <div class="col-9">
+  <div class="col-sm-9">
     <div class="border border-warning rounded ">
+      <% if @posts.present? %>
       <table class="table table-hover">
         <% @posts.each do |post| %>
           <tr>
@@ -84,6 +85,9 @@
             </td>
           </tr>
         <% end %>
+      <% else %>
+        <p class="text-center">こだわりをたくさん聞かせてください !!</p>
+      <% end %>
       </table>
     </div>
   </div>
