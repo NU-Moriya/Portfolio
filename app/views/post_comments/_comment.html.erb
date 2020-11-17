@@ -1,0 +1,21 @@
+<table class="table table hover">
+    <% comments.each do |comment| %>
+      <tr id="comment_<%= comment.id %>">
+        <td class="comment_user">
+          <%= link_to user_path(comment.user) do %>
+  					<%= attachment_image_tag(comment.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no-image-mini.jpg") %><br>
+  					<%= comment.user.name %>
+  				<% end %>
+        </td>
+        <td>
+          <%= comment.comment %>
+        </td>
+      <% if comment.user_id == current_user.id %>
+  			<td>
+  			  <%= link_to "", post_post_comment_path(comment.post_id, comment.id), method: :delete, remote: true, data: {confirm: "本当に削除してもよろしいですか？"}, class:"btn btn-danger fas fa-trash-alt" %>
+  			</td>
+  		<% end %>
+      </tr>
+    <% end %>
+
+</table>
