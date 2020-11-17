@@ -8,7 +8,7 @@
 </div>
 <div class="row">
   <div class="col-sm-2 offset-5">
-    <i class="fas fa-comment pr-4"><%= @comments.count %></i>
+    <i id="comment_count" class="fas fa-comment pr-4"><%= @comments.count %></i>
     <i id="bravos_buttons_<%= @post.id %>">
        <%= render partial: 'bravos/bravo', locals: { post: @post} %>
     </i>
@@ -35,26 +35,9 @@
     </div>
   </div>
   <div class="col-sm-8">
-    <table class="table table hover">
-      <% @comments.each do |comment| %>
-        <tr>
-          <td class="comment_user">
-            <%= link_to user_path(comment.user) do %>
-							<%= attachment_image_tag(comment.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no-image-mini.jpg") %><br>
-							<%= comment.user.name %>
-						<% end %>
-          </td>
-          <td>
-            <%= comment.comment %>
-          </td>
-        <% if comment.user_id == current_user.id %>
-					<td>
-					  <%= link_to "", post_post_comment_path(@post.id, comment.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class:"btn btn-danger fas fa-trash-alt" %>
-					</td>
-				<% end %>
-        </tr>
-      <% end %>
-    </table>
+    <div id="comment_button">
+			<%= render partial: 'post_comments/comment', locals: {comments: @comments, post: @post, comment: @comment} %>
+		</div>
   </div>
 </div>
 
@@ -62,12 +45,7 @@
 <div class="row row justify-content-center mt-5">
   <div class="d-flex justify-content-around">
     <div class="col-sm-12">
-      <%= form_with(model:[@post, @comment], local: true) do |f| %>
-				<%= f.text_area :comment, size:"30x5", class:"form-control", placeholder:"コメントする" %>
-				<%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
-          <i class="far fa-comment-dots"></i>
-        <% end %>
-	    <% end %>
+      <%= render partial: 'post_comments/form_comment', locals: {comment: @comment, post: @post} %>
 	  </div>
   </div>
 </div>

@@ -6,18 +6,15 @@ class PostCommentsController < ApplicationController
     @comment = PostComment.new(post_comment_params)
     @comment.user_id = current_user.id
     @comment.post_id = post.id
-    if @comment.save
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path)
-    end
+    @comment.save
+    @comments = post.post_comments
   end
   
   def destroy
     @post = Post.find(params[:post_id])
-    comment = @post.post_comments.find(params[:id])
-    comment.destroy
-    redirect_back(fallback_location: root_path)
+    @comment = @post.post_comments.find(params[:id])
+    @comment.destroy
+    @comments = @post.post_comments
   end
   
   private
