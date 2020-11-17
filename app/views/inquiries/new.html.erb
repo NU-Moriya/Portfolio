@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+  <div class="topic-name">
+    <h1>Contact us</i>
+    </h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_with(model: @inquiry, local: true, url: {controller: 'inquiries', action: 'create'}) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :name, 'Accout_ID' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+     <div class="form-group">
+       <%= f.label :message, 'お問い合わせ内容' %>
+       <%= f.text_area :message, size: '10x10', class: 'form-control', placeholder:"こちらにご記入ください" %>
+     </div>
+
+      <%= f.submit '問い合わせをする' %>
+
+    <% end %>
+  </div>
+</div>

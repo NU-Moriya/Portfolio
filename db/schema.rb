@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_012612) do
+ActiveRecord::Schema.define(version: 2020_11_16_164449) do
 
   create_table "bravos", force: :cascade do |t|
     t.integer "post_id", null: false
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 2020_11_15_012612) do
   create_table "entries", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "connect_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
