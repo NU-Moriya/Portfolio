@@ -1,0 +1,15 @@
+<% if post.bravo_by?(current_user) %>
+  <%= link_to post_bravo_path(post.id, post.bravos), method: :delete, remote: true do %>
+    <span style="color: black;">
+	  Bravo !! <i class="fas fa-hiking" style="color: #FF66CC;"></i>
+	  <%= post.bravos.count %>
+	</span>
+  <% end %>
+<% else %>
+  <%= link_to post_bravos_path(post_id: post.id), method: :post, remote: true do %>
+	<span>
+	  Bravo !! <i class="fas fa-hiking"></i>
+	  <%= post.bravos.count %>
+	</span>
+<% end %>
+<% end %>

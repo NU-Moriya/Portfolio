@@ -9,21 +9,9 @@
 <div class="row">
   <div class="col-sm-2 offset-5">
     <i class="fas fa-comment pr-4"><%= @comments.count %></i>
-    <% if @post.bravo_by?(current_user) %>
-  		<%= link_to post_bravo_path(@post), method: :delete do %>
-  			<span style="color: black;">
-  			  Bravo !! <i class="fas fa-hiking" style="color: #FF66CC;"></i>
-  			  <%= @post.bravos.count %>
-  			</span>
-  		<% end %>
-  	<% else %>
-  		<%= link_to post_bravos_path(@post), method: :post do %>
-  		  <span>
-  			  Bravo !! <i class="fas fa-hiking"></i>
-  			  <%= @post.bravos.count %>
-  			</span>
-  		<% end %>
-  	<% end %>
+    <i id="bravos_buttons_<%= @post.id %>">
+       <%= render partial: 'bravos/bravo', locals: { post: @post} %>
+    </i>
   </div>
 </div>
 
