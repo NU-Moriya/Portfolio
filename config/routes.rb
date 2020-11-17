@@ -36,5 +36,5 @@ Rails.application.routes.draw do
   
   post 'messages' => 'messages#create'
   
-  
+  resource :inquiry, only:[:new, :create]
 end
