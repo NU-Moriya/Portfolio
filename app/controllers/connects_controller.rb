@@ -29,7 +29,7 @@ class ConnectsController < ApplicationController
       myConnectIds << entry.connect.id
     end
                                                             #user_id が @user.idでないEntry
-    @anotherEntries = Entry.where(connect_id: myConnectIds).where('user_id != ?',@user.id)
+    @anotherEntries = Entry.where(connect_id: myConnectIds).where('user_id != ?',@user.id).page(params[:page]).per(5)
   end
 
 end

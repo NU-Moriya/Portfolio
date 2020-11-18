@@ -3,7 +3,7 @@
       <tr id="comment_<%= comment.id %>">
         <td class="comment_user">
           <%= link_to user_path(comment.user) do %>
-  					<%= attachment_image_tag(comment.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no-image-mini.jpg") %><br>
+  					<%= attachment_image_tag(comment.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %><br>
   					<%= comment.user.name %>
   				<% end %>
         </td>

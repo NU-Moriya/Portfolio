@@ -18,8 +18,8 @@
   <div class="col-sm-3 offset-3 topic-name">
     <h5>
       Bravo !! Ranking →
-      <%= link_to "", posts_ranking_path, class:"fas fa-hiking", style:"color: #FF66CC;" %>
-      <%= link_to "", posts_ranking_path, class:"fas fa-crown", style:"color: gold;" %>
+      <%= link_to "", posts_ranking_path(commitment_id: @commitment.id), class:"fas fa-hiking", style:"color: #FF66CC;" %>
+      <%= link_to "", posts_ranking_path(commitment_id: @commitment.id), class:"fas fa-crown", style:"color: gold;" %>
     </h5>
   </div>
 </div>
