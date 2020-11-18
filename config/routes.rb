@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   
   root 'homes#top'
   get 'about' => 'homes#about'
-  post 'guest_sign_in' => 'homes#new_guest'
+  
+  #ゲストログイン
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
   
   get 'users/quit/:id' => 'users#quit', as: 'user_quit'
   patch 'users/invalid' => 'users#invalid'

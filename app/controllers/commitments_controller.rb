@@ -3,7 +3,7 @@ class CommitmentsController < ApplicationController
   
   def index
     @commitment = Commitment.new
-    @commitments = Commitment.all
+    @commitments = Commitment.all.page(params[:page]).per(5)
   end
   
   def show

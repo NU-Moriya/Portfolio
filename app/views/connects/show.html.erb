@@ -13,6 +13,9 @@
         <p>
           <%= link_to user_path(e.user.id), style:"color: black; font-size: 10px;" do %>
             <%= attachment_image_tag(e.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %>
+            <% if e.user.classification == "法人" %>
+              <i class="fas fa-building" style="color: green;"></i>
+            <% end %>
             <%= e.user.name %>
           <% end %>
         </p>
