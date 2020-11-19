@@ -19,8 +19,10 @@
       		<%= f.text_field :name, class: "name" %>
       	</div>
       	<div class="field mt-4">
-      		<%= f.label :avatar_id, "Profile image" %><br>
-      		<%= f.attachment_field :avatar, class: "user_image" %>
+      	  <span>Profil Image</span><br>
+      		<%= f.label :avatar, class:"far fa-image" do %>
+        		<%= f.attachment_field :avatar, style:"display:none;" %>
+      		<% end %>
       	</div>
       	<div class="field mt-4">
       		<%= f.label :introduction, "About me" %><br>

@@ -10,9 +10,9 @@
 <div class="row justify-content-center mb-5">
   <div class="topic-name">
     <h1>
-      <i class="fas fa-crown", style="color: gold;"></i>
+      <span class="fas fa-crown", style="color: gold;"></span>
       Bravo Ranking !!
-      <i class="fas fa-hiking", style="color: #FF66CC;"></i>
+      <span class="fas fa-hiking", style="color: #FF66CC;"></span>
     </h1>
   </div>
 </div>
@@ -30,21 +30,21 @@
               <%= post.user.name %>
             <% end %>
           </td>
-          <td style="font-size:30px;">
-            <%= link_to post.content, post_path(post), style:"color: black;" %>
+          <td style="font-size:20px; text-align:center;">
+            <%= link_to post.content.truncate(40), post_path(post), style:"color: black;" %>
           </td>
           <td>
             <%= attachment_image_tag(post, :image, size: "100x100") %>
           </td>
           <td>
-            <i class="fas fa-comments">
+            <span class="fas fa-comments">
               <%= post.post_comments.count %>
-            </i>
+            </span>
           </td>
           <td>
-            <i class="fas fa-hiking" style="color: #FF66CC;">
+            <span class="fas fa-hiking" style="color: #FF66CC;">
               <%= post.bravos.count %>
-            </i>
+            </span>
           </td>
         </tr>
       <% end %>

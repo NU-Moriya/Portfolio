@@ -1,26 +1,20 @@
-<div class="row justify-content-center">
-  <div class="col-sm-12 mb-5">
-    <div class="topic-name">
-      <h1>Confirm !!</h1>
-    </div>
+<div class="row justify-content-center mb-5">
+  <div class="topic-name">
+    <h1>Confirm !!</h1>
   </div>
 </div>
-<div class="row justify-content-center">
-  <div class="col-sm-12 mb-5">
-    <div>
-      <h6>こだわりさんアカウントを削除しますか?</h6>
-    </div>
+<div class="row justify-content-center mt-5">
+  <div>
+    <h6>こだわりさんアカウントを削除しますか?</h6>
   </div>
 </div>
-<div class="row justify-content-center">
-  <div class="col-sm-12 mt-5">
-    <div class="btn-acount-delete">
-      <span class="mr-5">
-        <%= link_to "Cancel", edit_user_path(@user), class:"btn btn-outline-success" %>
-      </span>
-      <span>
-        <%= link_to "Delete", users_invalid_path(@user), method: :patch, class:" btn btn-outline-danger" %>
-      </span>
-    </div>
+<div class="row justify-content-center mt-5">
+  <div class="btn-acount-delete">
+    <span class="mr-5">
+      <%= link_to "Cancel", edit_user_path(@user), class:"btn btn-outline-success" %>
+    </span>
+    <span>
+      <%= link_to "Delete", users_invalid_path(@user), method: :patch, class:" btn btn-outline-danger" %>
+    </span>
   </div>
 </div>

@@ -49,7 +49,7 @@
                 <%= fields_for @entry do |e| %>
                   <%= e.hidden_field :user_id, value: @user.id %>
                 <% end %>
-                <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+                <%= f.submit "Start Chat !!", class:"btn btn-outline-info btn-lg user-show-chat"%>
               <% end %>
             <% end %>
           <% end %>
@@ -75,7 +75,7 @@
           </tr>
           <% @commitments.each do |commitment| %>
           <tr>
-            <td class="text-center">
+            <td class="text-center", style="color: black;">
               <%= link_to commitment.room_name, commitment_path(commitment.id) %>
             </td>
           </tr>
