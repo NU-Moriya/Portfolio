@@ -6,8 +6,5 @@ class HomesController < ApplicationController
   def about
   end
   
-  def new_guest
-  end
-  
   
 end

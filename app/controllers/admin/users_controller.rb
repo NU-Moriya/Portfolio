@@ -10,12 +10,14 @@ class Admin::UsersController < ApplicationController
     @user.update(is_valid: false)
     reset_session
     redirect_to admin_users_path
+    flash[:notice] = "ユーザーを無効会員に変更しました"
   end
     
   def update
     @user = User.find(params[:id])
     @user.update(classification: 1)
     redirect_to admin_users_path
+    flash[:notice] = "法人区分に変更しました"
   end
   
   def search

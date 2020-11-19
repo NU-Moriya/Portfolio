@@ -37,7 +37,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user)
+      flash[:notice] = "編集完了しました!"
     else
+      flash[:alert] = "エラーです。もう一度お試しください"
       render "edit"
     end
   end
@@ -53,6 +55,7 @@ class UsersController < ApplicationController
     @user.update(is_valid: false)
     reset_session
     redirect_to root_path
+    flash[:notice] = "退会しました。またこだわりさんと繋がりましょう!"
   end
 
   private

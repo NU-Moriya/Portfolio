@@ -1,6 +1,6 @@
 <%= form_with(model:[post, comment], remote: true) do |f| %>
-	<%= f.text_area :comment, size:"30x5", class:"form-control", placeholder:"コメントする" %>
-	<%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
-    <i class="far fa-comment-dots"></i>
+	<%= f.text_area :comment, size:"30x5", placeholder:"コメントする" %>
+	<%= button_tag :type => "submit", :class =>"btn btn-default" do %>
+    <span class="far fa-comment-dots fa-2x"></span>
   <% end %>
 <% end %>

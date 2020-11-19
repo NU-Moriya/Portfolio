@@ -1,4 +1,4 @@
-<div class="row mt-n5">
+<div class="row mt-n5 mb-n5">
   <%= link_to "", commitments_path, class:"fas fa-arrow-alt-circle-left" %>
 </div>
 <div class="row justify-content-center">
@@ -9,28 +9,27 @@
   </div>
 </div>
 
-<div class="row mt-5">
-  <div class="col-sm-4 offset-2  topic-name">
-    <h5 id="likes_buttons_<%= @commitment.id %>">
-      <%= render partial: 'like_commitments/like_commitment', locals: { commitment: @commitment} %>
-    </h5>
-  </div>
-  <div class="col-sm-3 offset-3 topic-name">
-    <h5>
-      Bravo !! Ranking →
-      <%= link_to "", posts_ranking_path(commitment_id: @commitment.id), class:"fas fa-hiking", style:"color: #FF66CC;" %>
-      <%= link_to "", posts_ranking_path(commitment_id: @commitment.id), class:"fas fa-crown", style:"color: gold;" %>
-    </h5>
-  </div>
+<div class="col-sm-4 offset-sm-4  topic-name">
+  <h5 id="likes_buttons_<%= @commitment.id %>">
+    <%= render partial: 'like_commitments/like_commitment', locals: { commitment: @commitment} %>
+  </h5>
+</div>
+<div class="col-sm-3 offset-9 topic-name">
+  <h5>
+    Bravo !! Ranking →
+    <%= link_to "", posts_ranking_path(commitment_id: @commitment.id), class:"fas fa-hiking", style:"color: #FF66CC;" %>
+    <%= link_to "", posts_ranking_path(commitment_id: @commitment.id), class:"fas fa-crown", style:"color: gold;" %>
+  </h5>
 </div>
 
-<div class="row">
+
+<div class="row mt-5">
   <div class="col-sm-3 form_search">
     <div class="row">
       <div class="col-sm-12">
         <%= form_with url: posts_search_path, method: :get, local: true do |f| %>
           <%= f.hidden_field :commitment_id, :value => @commitment.id %>
-          <i class="fas fa-search"></i>
+          <span class="fas fa-search"></span>
           <%= f.label :content, "Keyword" %><br>
           <%= f.text_field :content, placeholder:"キーワード" %><br>
           <%= f.submit 'Go !!' %>
@@ -42,7 +41,9 @@
         <%= form_with(model:[@post], local: true) do |f| %>
           <%= f.hidden_field :commitment_id, :value => @commitment.id %>
   				<%= f.text_area :content, size:"15x8", class:"form-control", placeholder:"こだわりをシェアする" %>
-  				<%= f.attachment_field :image, class:"far fa-image" %>
+  				<%= f.label:image, class:"far fa-image" do %>
+  				  <%= f.attachment_field :image, style:"display:none;" %>
+  				<% end %>
   				<%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
             <i class="far fa-paper-plane"></i>
           <% end %>
@@ -50,40 +51,33 @@
   	  </div>
     </div>
   </div>
+
+
   <div class="col-sm-9">
-    <div class="border border-warning rounded ">
+    <div class="row  posting">
       <% if @posts.present? %>
-      <table class="table table-hover">
         <% @posts.each do |post| %>
-          <tr>
-            <td class="post_user">
+          <div class="col-sm-4 box-post">
+            <%= attachment_image_tag(post, :image, size: "50x50", fallback: "no_postimage.jpg") %>
+            <p><%= link_to post.content.truncate(47), post_path(post), style:"color: black;" %></p>
+            <p>
               <%= link_to user_path(post.user) do %>
                 <%= attachment_image_tag(post.user, :avatar, size: "30x30", class:"rounded-circle", fallback: "no_image.png") %><br>
                 <%= post.user.name %>
               <% end %>
-            </td>
-            <td>
-              <%= link_to post.content, post_path(post), style:"color: black;" %>
-            </td>
-            <td>
-              <%= attachment_image_tag(post, :image, size: "100x100") %>
-            </td>
-            <td>
               <i class="fas fa-comments">
                 <%= post.post_comments.count %>
               </i>
-            </td>
-            <td>
               <i class="fas fa-hiking" style="color: #FF66CC;">
                 <%= post.bravos.count %>
               </i>
-            </td>
-          </tr>
+            </p>
+            <p><%= link_to "View Detail", post_path(post), class:"btn btn-light btn-lg btn-block" %></p>
+          </div>
         <% end %>
       <% else %>
         <p class="text-center">こだわりをたくさん聞かせてください !!</p>
       <% end %>
-      </table>
     </div>
+    <%= paginate @posts %>
   </div>
-</div>

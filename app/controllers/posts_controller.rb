@@ -3,12 +3,13 @@ class PostsController < ApplicationController
 
   def create
 
-    commitment = Commitment.find(params["post"]["commitment_id"])
+    @commitment = Commitment.find(params["post"]["commitment_id"])
     post = Post.new(post_params)
     post.user_id = current_user.id
-    post.commitment_id = commitment.id
+    post.commitment_id = @commitment.id
     if post.save
-      redirect_to commitment_path(commitment), notice: "こだわりを投稿しました"
+      redirect_to commitment_path(@commitment)
+      flash[:notice] = "こだわりをシェアしました"
     end
   end
 
@@ -28,6 +29,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to post_path(@post)
+      flash[:notice] = "シェアしたこだわりを変更しました！"
     else
       render "edit"
     end
@@ -50,6 +52,7 @@ class PostsController < ApplicationController
   end
 
   def ranking
+    @commitment = Commitment.find(params[:commitment_id])
    #postに関連するbravoを引っ張ってくる。whereでその範囲を絞って、post_idをグループ化。その後ランキング化
     @posts= Post.joins(:bravos).where(commitment_id: params[:commitment_id]).group(:post_id).order('count(user_id) desc').limit(5)
   end
