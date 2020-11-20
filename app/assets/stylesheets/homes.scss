@@ -10,8 +10,40 @@
 
 .about {
   background-color: #FFFACD;
+  font-family:'Comic Sans MS',cursive;
+  height:auto;
+  border-radius:30px;
+  padding:25px;
+  text-align: center;
+}
+
+.main-container {
+  background-image: image-url("about.jpg");
+  background-position: center 75%;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .howto {
-  background-color: #EEEEEE
+  text-align: center;
+  font-family:'Comic Sans MS',cursive;
+
+}
+.howto_box {
+  width: 180px;
+  height: 180px;
+  background: #f0ffff;
+  border-radius: 100%;
+}
+
+.share-box {
+  background: #FFFACD;
+  border-radius:30px;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size:70px;
 }
