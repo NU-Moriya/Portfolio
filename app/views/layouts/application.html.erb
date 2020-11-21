@@ -20,18 +20,16 @@
       </div>
       
       <div class="container-fulid">
-        <div class="mt-3 ml-5 mb-0">
-          <% if notice %>
-            <span class="notice">
-              <%= notice %>
-            </span>
-          <% elsif alert %>
-            <span class="notice">
-              <%= notice %>
-            </spa>
-          <% end %>
-          <%= yield %>
-        </div>
+        <% if notice %>
+          <p class="notice">
+            <%= notice %>
+          </p>
+        <% elsif alert %>
+          <p class="alert">
+            <%= alert %>
+          </p>
+        <% end %>
+        <%= yield %>
       </div>
       
       <%= render 'layouts/footer' %>

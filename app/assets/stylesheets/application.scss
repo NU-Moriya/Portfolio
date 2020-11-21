@@ -34,11 +34,13 @@
 .alert {
   font-size: 15px;
   color: red;
+  margin: 10px;
 }
 
 .notice {
   font-size: 15px;
   color: green;
+  margin: 10px 0px 0px 30px;
 }
 
 
@@ -203,3 +205,13 @@ body,
 .container-all {
   margin-top: 6rem !important;
 }
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+ul {
+  font-family:'Comic Sans MS',cursive;
+}
+
