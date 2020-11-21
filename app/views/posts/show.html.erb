@@ -1,55 +1,58 @@
-<div class="row mt-n5">
-  <%= link_to "", commitment_path(@commitment), class:"fas fa-arrow-alt-circle-left" %>
-</div>
-<div class="row justify-content-center mt-n5">
-  <div class="topic-name">
-    <h1>Detail...</h1>
+<div class="container container-all">
+  <div class="row mt-n5">
+    <%= link_to "", commitment_path(@commitment), class:"fas fa-arrow-alt-circle-left" %>
   </div>
-</div>
-<div class="row">
-  <div class="col-sm-2 offset-5">
-    <i id="comment_count" class="fas fa-comment pr-4"><%= @comments.count %></i>
-    <i id="bravos_buttons_<%= @post.id %>">
-       <%= render partial: 'bravos/bravo', locals: { post: @post} %>
-    </i>
+  <div class="row justify-content-center mt-n5">
+    <div class="topic-name">
+      <h1>Detail...</h1>
+    </div>
   </div>
-</div>
-
-<div class="row mt-5 mb-5">
-  <div class="col-sm-4">
-    <p>
-      <%= link_to user_path(@post.user), style:"color: black;" do %>
-        <%= attachment_image_tag(@post.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %>
-        <%= @post.user.name %>
-      <% end %>
-    </p>
-    <p>
-      <%= @post.content %>
-    </p>
-    <p>
-      <%= attachment_image_tag(@post, :image, size: "150x150") %>
-    </p>
-    <p>
-      <%= @post.created_at.to_s(:datetime_jp) %>
-    </p>
-      <div class="col-sm-3 offset-2">
-        <% if @post.user.id == current_user.id %>
-        	<%= link_to "", edit_post_path(@post), class:"fas fa-eraser", style:"padding-right: 10px; color: #66FF33;" %>
-        	<%= link_to "", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class:"fas fa-trash-alt", style:"color: #FF3366" %>
+  <div class="row">
+    <div class="col-sm-2 offset-5">
+      <i id="comment_count" class="fas fa-comment pr-4"><%= @comments.count %></i>
+      <i id="bravos_buttons_<%= @post.id %>">
+         <%= render partial: 'bravos/bravo', locals: { post: @post} %>
+      </i>
+    </div>
+  </div>
+  
+  <div class="row mt-5 mb-5">
+    <div class="col-sm-4">
+      <p>
+        <%= link_to user_path(@post.user), style:"color: black;" do %>
+          <%= attachment_image_tag(@post.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %>
+          <%= @post.user.name %>
         <% end %>
-      </div>
+      </p>
+      <p>
+        <%= @post.content %>
+      </p>
+      <p>
+        <%= attachment_image_tag(@post, :image, size: "150x150") %>
+      </p>
+      <p>
+        <%= @post.created_at.to_s(:datetime_jp) %>
+      </p>
+        <div class="col-sm-3 offset-2">
+          <% if @post.user.id == current_user.id %>
+          	<%= link_to "", edit_post_path(@post), class:"fas fa-eraser", style:"padding-right: 10px; color: #66FF33;" %>
+          	<%= link_to "", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class:"fas fa-trash-alt", style:"color: #FF3366" %>
+          <% end %>
+        </div>
+    </div>
+    <div class="col-sm-8">
+      <div id="comment_button">
+  			<%= render partial: 'post_comments/comment', locals: {comments: @comments, post: @post, comment: @comment} %>
+  		</div>
+    </div>
   </div>
-  <div class="col-sm-8">
-    <div id="comment_button">
-			<%= render partial: 'post_comments/comment', locals: {comments: @comments, post: @post, comment: @comment} %>
-		</div>
+  
+  <div class="row row justify-content-center mt-5">
+    <div class="d-flex justify-content-around">
+      <div class="col-sm-12">
+        <%= render partial: 'post_comments/form_comment', locals: {comment: @comment, post: @post} %>
+  	  </div>
+    </div>
   </div>
 </div>
 
-<div class="row row justify-content-center mt-5">
-  <div class="d-flex justify-content-around">
-    <div class="col-sm-12">
-      <%= render partial: 'post_comments/form_comment', locals: {comment: @comment, post: @post} %>
-	  </div>
-  </div>
-</div>

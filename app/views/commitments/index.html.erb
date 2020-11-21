@@ -1,36 +1,38 @@
-<div class="row justify-content-center mb-5">
-  <div class="topic-name">
-    <h1>こだわりRoom' s
-      <i class="fas fa-person-booth"></i>
-    </h1>
-  </div>
-</div>
-<div class="row mt-5">
-  <div class="col-sm-4">
-    <div class="row form_search mt-5">
-      <%= form_with url: commitments_search_path, method: :get, local: true do |f| %>
-        <i class="fas fa-search"></i>
-        <%= f.label :content, "Room's keyword" %><br>
-        <%= f.text_field :content, placeholder:"キーワード" %><br>
-        <%= f.submit 'Go !!' %>
-      <% end %>
-    </div>
-    <div class="row room_name mt-5">
-      <%= form_with model:@commitment, local:true do |f| %>
-        <i class="fas fa-magic"></i>
-        <%= f.label :room_name, "New Room's name" %><br>
-        <%= f.text_field :room_name, size:"28x2", class:'col-sm-12' %><br>
-        <%= f.submit "create !!" %>
-      <% end %>
+<div class="container container-all mt-5">
+  <div class="row justify-content-center mb-2">
+    <div class="topic-name">
+      <h1>こだわりRoom' s
+        <span class="fas fa-person-booth"></span>
+      </h1>
     </div>
   </div>
-
-  <div class="col-sm-8 pt-3">
-    <div class="row">
-      <%= render partial: 'commitments/commitment_box', locals: { commitments: @commitments} %>
+  <div class="row mt-5">
+    <div class="col-sm-4">
+      <div class="row form_search mt-5">
+        <%= form_with url: commitments_search_path, method: :get, local: true do |f| %>
+          <span class="fas fa-search"></span>
+          <%= f.label :content, "Room's keyword" %><br>
+          <%= f.text_field :content, placeholder:"キーワード" %><br>
+          <%= f.submit 'Go !!' %>
+        <% end %>
+      </div>
+      <div class="row room_name mt-5">
+        <%= form_with model:@commitment, local:true do |f| %>
+          <span class="fas fa-magic"></span>
+          <%= f.label :room_name, "New Room's name" %><br>
+          <%= f.text_field :room_name, size:"28x2", class:'col-sm-12' %><br>
+          <%= f.submit "create !!" %>
+        <% end %>
+      </div>
     </div>
+  
+    <div class="col-sm-8 pt-3">
+      <div class="row">
+        <%= render partial: 'commitments/commitment_box', locals: { commitments: @commitments} %>
+      </div>
+    </div>
+    <%= paginate @commitments %>
   </div>
-  <%= paginate @commitments %>
 </div>
 
 

@@ -1,23 +1,25 @@
-<div class="row mt-n5">
-  <%= link_to "", commitments_path, class:"fas fa-arrow-alt-circle-left" %>
-</div>
-<div class="row justify-content-center">
-  <div class="topic-name">
-    <h1>Result Search for "<%= @content %>"
-      <span class="fas fa-person-booth"></span>
-    </h1>
+<div class="container container-all mt-5">
+  <div class="row mt-n5">
+    <%= link_to "", commitments_path, class:"fas fa-arrow-alt-circle-left" %>
   </div>
-</div>
-
-<div class="row">
-<% if @commitments.nil? %>
-   <span class="fas fa-sad-tear fa-3x">検索キーワードを入力してください</span>
-<% else %>
-  <% if @commitments.empty? %>
-    <span class="fas fa-sad-tear fa-2x">該当するキーワードが見つかりませんでした</span>
+  <div class="row justify-content-center">
+    <div class="topic-name">
+      <h1>Result Search for "<%= @content %>"
+        <span class="fas fa-person-booth"></span>
+      </h1>
+    </div>
+  </div>
+  
+  <div class="row">
+  <% if @commitments.nil? %>
+     <span class="fas fa-sad-tear fa-3x">検索キーワードを入力してください</span>
   <% else %>
-    <%= render partial: 'commitments/commitment_box', locals: { commitments: @commitments} %>
+    <% if @commitments.empty? %>
+      <span class="fas fa-sad-tear fa-2x">該当するキーワードが見つかりませんでした</span>
+    <% else %>
+      <%= render partial: 'commitments/commitment_box', locals: { commitments: @commitments} %>
+    <% end %>
   <% end %>
-<% end %>
+  </div>
+  <%= paginate @commitments %>
 </div>
-<%= paginate @commitments %>

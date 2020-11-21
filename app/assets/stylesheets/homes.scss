@@ -2,11 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.jumbotron {
-  background-image: image-url("top-man.png");
-  background-size: cover;
-  background-position: center 60%;
+.jumbotron{
+    height: 100vh;
+    background: image-url("top-man.jpeg") center;
+    background-size: cover;
+    
 }
+
+.telop {
+  color: white;
+  font-family:'Comic Sans MS',cursive;
+}
+
+.sub-telop {
+  color: white;
+  font-family:'Comic Sans MS',cursive;
+  font-size: 30px;
+  position: relative; left: 20%;
+}
+
+.display-4 {
+  font-size: 110px;
+}
+
+.display-5 {
+  font-size: 100px;
+}
+
+.lead {
+  font-size: 30px;
+  position: relative; left: 20%;
+}
+
+.link_btn {
+  color: white;
+  font-family:'Comic Sans MS',cursive;
+  font-size: 30px;
+  text-align: center;
+}
+
 
 .about {
   background-color: #FFFACD;
@@ -44,6 +78,7 @@
   padding: 20px;
 }
 
-h1 {
+.main-container h1 {
   font-size:70px;
 }
+

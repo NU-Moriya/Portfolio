@@ -172,7 +172,7 @@
 /*ページネーション自体のデザイン*/
 .pagination>li>a {
   border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+  color: #e6e6fa;   /*文字の色を変える*/
 }
 
 /* 表示しているページ番号のデザイン */
@@ -183,5 +183,23 @@
 
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
-  border-radius: 15px;    /*角を丸くする*/
+  border-radius: 15px;
+  background: #FFCCCC; /*角を丸くする*/
+}
+
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: #EAD9FF;
+  text-align: center;
+}
+
+.container-all {
+  margin-top: 6rem !important;
 }

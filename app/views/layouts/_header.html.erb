@@ -1,6 +1,6 @@
-<header class="navbar navbar-dark bg-dark">
-  <div class="container">
-    <nav class="nav navbar-nav navbar-left">
+<header class="container mb-5">
+  <nav class="navbar fixed-top navbar-dark bg-dark">
+    <nav class="navbar-brand">
       <span><%= link_to "こだわLink", root_path %></span>
     </nav>
     <nav class="nav navbar-nav navbar-right">
@@ -13,7 +13,7 @@
             <%= link_to 'About', about_path, class:"fas fa-info-circle nav-link mr-3" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'こだわりルーム', commitments_path, class:"fab fa-slideshare nav-link mr-3" %>
+            <%= link_to 'Codawari Room', commitments_path, class:"fab fa-slideshare nav-link mr-3" %>
           </li>
           <li class="nav-item">
             <%= link_to "logout", destroy_user_session_path, class:"fas fa-sign-out-alt nav-link mr-3", method: :delete %>

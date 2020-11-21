@@ -10,18 +10,31 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div id="pc-menu">
-      <%= render 'layouts/header' %>
-    </div>
-    <div id="sp-menu">
-      <%= render 'layouts/sp-header' %>
-    </div>
-    <div class="container mt-1">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-        <%= yield %>
+    <div id="wrapper ">
 
+      <div id="pc-menu">
+        <%= render 'layouts/header' %>
+      </div>
+      <div id="sp-menu">
+        <%= render 'layouts/sp-header' %>
+      </div>
+      
+      <div class="container-fulid">
+        <div class="mt-3 ml-5 mb-0">
+          <% if notice %>
+            <span class="notice">
+              <%= notice %>
+            </span>
+          <% elsif alert %>
+            <span class="notice">
+              <%= notice %>
+            </spa>
+          <% end %>
+          <%= yield %>
+        </div>
+      </div>
+      
+      <%= render 'layouts/footer' %>
     </div>
-
   </body>
 </html>

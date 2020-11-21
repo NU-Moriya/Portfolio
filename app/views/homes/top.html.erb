@@ -1,11 +1,16 @@
-<div class="container">
-  <div class="jumbotron">
-    <h2 class="display-4">こだわりで</h2>
-    <p class="lead"></p>
-    <hr class="my-4">
-    <p>そのこだわりで自分をもっと好きになる</p>
-    <h1 class="display-5">つながる</h1>
+<div class="jumbotron mt-0 mb-0">
+  <div class="container">
+    <h1 class="display-4 telop">Link</h1>
+    <span class="sub-telop">Love Yourself </span><br>
+    <span class="sub-telop">Others Will Need You</span>
+    <h1 class="display-5 telop">With Your.."Codawari"</h1>
+    <div class="link_btn mt-5">
+      <h5>
+         \<%= link_to "Sign up", new_user_registration_path, class:"btn btn-light btn-lg" %>/
+      </h5>
+      <h5>
+      　\<%= link_to "Guest Log In", users_guest_sign_in_path, method: :post, class:"btn btn-light btn-lg" %>/
+      </h5>
+    </div>
   </div>
 </div>
-
-<%= link_to 'ゲストログインはこちら', users_guest_sign_in_path, method: :post %>
