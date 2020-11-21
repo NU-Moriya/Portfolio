@@ -15,6 +15,13 @@
 @import "bootstrap";
 @import "*";
 
+
+html,
+body {
+  height: 100%;
+}
+
+
  #pc-menu{
   display: block;
   }
@@ -189,11 +196,10 @@
   background: #FFCCCC; /*角を丸くする*/
 }
 
-body,
 #wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .footer {
