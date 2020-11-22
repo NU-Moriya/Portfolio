@@ -30,10 +30,10 @@
   
   <div class="row posting mt-5">
     <% if @posts.nil? %>
-      <span class="fas fa-sad-tear fa-3x">検索キーワードを入力してください</span>
+      <span class="fas fa-sad-tear">検索キーワードを入力してください</span>
     <% else %>
       <% if @posts.empty? %>
-        <span class="fas fa-sad-tear fa-3x">該当するキーワードが見つかりませんでした</span>
+        <span class="fas fa-sad-tear">該当するキーワードが見つかりませんでした</span>
       <% else %>
         <% @posts.each do |post| %>
           <div class="col-sm-4 box-post">
