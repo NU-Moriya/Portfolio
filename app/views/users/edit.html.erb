@@ -1,11 +1,12 @@
-<div class="row row justify-content-center mt-5 user-profile">
-  <div class="col-xs-12">
-    <h2>Edit...
-      <i class="fas fa-user-edit"></i>
-    </h2>
+<div class="container container-all">
+  <div class="row justify-content-center mt-5 user-profile">
+    <div class="col-xs-12">
+      <h2>Edit...
+        <span class="fas fa-user-edit"></span>
+      </h2>
       <%= form_with model:@user, local: true do |f| %>
         <% if @user.errors.any? %>
-          <div id="error_explanation">
+        <div id="error_explanation">
       	  <h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3>
       		<ul>
       		  <% @user.errors.full_messages.each do |message| %>
@@ -19,8 +20,10 @@
       		<%= f.text_field :name, class: "name" %>
       	</div>
       	<div class="field mt-4">
-      		<%= f.label :avatar_id, "Profile image" %><br>
-      		<%= f.attachment_field :avatar, class: "user_image" %>
+      	  <span>Profile Image</span><br>
+      		<%= f.label :avatar, class:"far fa-image" do %>
+        		<%= f.attachment_field :avatar, style:"display:none;" %>
+      		<% end %>
       	</div>
       	<div class="field mt-4">
       		<%= f.label :introduction, "About me" %><br>
@@ -30,11 +33,12 @@
       		<%= f.submit "Change !!" %>
       	</div>
       <% end %>
-        <div>
-          <%= link_to "", user_path(@user), class:"fas fa-arrow-alt-circle-left" %>
-        </div>
-        <div class="quit mt-4">
-          <%= link_to "アカウントの削除はこちらから", user_quit_path(@user), class:"btn btn-outline-danger" %>
-        </div>
+      <div>
+        <%= link_to "", user_path(@user), class:"fas fa-arrow-alt-circle-left" %>
+      </div>
+      <div class="quit mt-4">
+        <%= link_to "アカウントの削除はこちらから", user_quit_path(@user), class:"btn btn-outline-danger" %>
+      </div>
+    </div>
   </div>
 </div>

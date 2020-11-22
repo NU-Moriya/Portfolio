@@ -1,0 +1,15 @@
+<%= attachment_image_tag(post, :image, size: "50x50", fallback: "no_postimage.jpg") %>
+  <p><%= link_to post.content.truncate(45), post_path(post), style:"color: black;" %></p>
+  <p>
+    <%= link_to user_path(post.user) do %>
+      <%= attachment_image_tag(post.user, :avatar, size: "30x30", class:"rounded-circle", fallback: "no_image.png") %><br>
+      <span style="color:black;"><%= post.user.name %></span>
+    <% end %>
+    <span class="fas fa-comments">
+      <%= post.post_comments.count %>
+    </span>
+    <span class="fas fa-hiking" style="color: #FF66CC;">
+      <%= post.bravos.count %>
+    </span>
+  </p>
+  <p><%= link_to "View Detail", post_path(post), class:"btn btn-light btn-lg btn-block" %></p>

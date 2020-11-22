@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   attachment :image
   
+  validates :content, presence: true
+  
   def bravo_by?(user)
     bravos.where(user_id: user.id).exists?
   end

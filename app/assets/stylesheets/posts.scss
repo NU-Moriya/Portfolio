@@ -1,9 +1,10 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.result_search {
+.box-post {
   font-size:15px;
   font-family:'Comic Sans MS',cursive;
+  border-bottom: solid 3px #FFB6C1;
 }
 
 .comment_user {
@@ -13,4 +14,28 @@
 
 .edit {
   font-family:'Comic Sans MS',cursive;
+}
+
+
+.ranking {
+  font-family:'Comic Sans MS',cursive;
+}
+
+.posting {
+  align-items: flex-end;
+}
+.posting .col-sm-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  
+}
+
+.posting .col-sm-4 p {
+  font-family:'Comic Sans MS',cursive;
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+.table-post {
+  overflow: scroll;
 }

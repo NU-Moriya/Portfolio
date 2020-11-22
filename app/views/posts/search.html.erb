@@ -1,70 +1,46 @@
-<div class="row justify-content-center">
-  <div class="topic-name">
-    <h1>
-      <%= "#{@commitment.room_name} 's room" %>  
-    </h1>
-  </div>
-</div>
-<div class="row justify-content-center mt-5">
-  <div class="topic-name">
-    <h5>
-      <% if @commitment.liked_by?(current_user) %>
-        <%= @commitment.like_commitments.count %>人のこだわりさんが
-        <%= link_to commitment_like_commitments_path(@commitment), method: :delete do %>
-          <i class="fas fa-heart" style="color:red;"></i>
-        <% end %>
-        しています
-      <% else %>
-        <%= @commitment.like_commitments.count %>人のこだわりさんが
-        <%= link_to commitment_like_commitments_path(@commitment), method: :post do %>
-          <i class="far fa-heart" style="color:red;"></i>
-        <% end %>
-        しています
-      <% end %>  
-    </h5>
-  </div>
-</div>
-
-<div class="row row justify-content-center mt-5">
-  <div class="d-flex justify-content-around">
-    <div class="col-xs-12 result_search">
-      <h4>Result Search for "<%= @content %>"</h4>
-      <% if @posts.nil? %>
-        <p>該当するキーワードはありません</p>
-      <% else %>
-        <% if @posts.empty? %>
-          <p>該当するキーワードはありません</p>
-        <% else %>
-          <table class="table table-hover border">
-            <% @posts.each do |post| %>
-              <tr>
-                <td>
-                  <%= link_to user_path(post.user) do %>
-                    <%= attachment_image_tag(post.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %><br>
-                    <%= post.user.name %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to post.content, post_path(post) %>
-                </td>
-                <td>
-                  <%= attachment_image_tag(post, :image, size: "100x100") %>
-                </td>
-                <td>
-                  <i class="fas fa-comments">
-                    <%= post.post_comments.count %>
-                  </i>
-                </td>
-                <td>
-                  <i class="fas fa-hiking" style="color: #FF66CC;"></i>
-                  <%= post.bravos.count %>
-                </td>
-              </tr>
-            <% end %>
-          </table>
-        <% end %>
-      <% end %>
+<div class="container container-all">
+  <%= link_to "", commitment_path(@commitment), class:"fas fa-arrow-alt-circle-left" %>
+  <div class="row justify-content-center">
+    <div class="topic-name">
+      <h1>
+        <%= "#{@commitment.room_name} 's room" %>  
+      </h1>
     </div>
   </div>
+  <div class="row justify-content-center mt-3">
+    <div class="topic-name">
+      <h5>
+        <% if @commitment.liked_by?(current_user) %>
+          <%= @commitment.like_commitments.count %>人のこだわりさんが
+          <%= link_to commitment_like_commitments_path(@commitment), method: :delete do %>
+            <span class="fas fa-heart" style="color:red;"></span>
+          <% end %>
+          しています
+        <% else %>
+          <%= @commitment.like_commitments.count %>人のこだわりさんが
+          <%= link_to commitment_like_commitments_path(@commitment), method: :post do %>
+            <span class="far fa-heart" style="color:red;"></span>
+          <% end %>
+          しています
+        <% end %>  
+      </h5>
+      <h4>Result Search for "<%= @content %>"</h4>
+    </div>
+  </div>
+  
+  <div class="row posting mt-5">
+    <% if @posts.nil? %>
+      <span class="fas fa-sad-tear fa-3x">検索キーワードを入力してください</span>
+    <% else %>
+      <% if @posts.empty? %>
+        <span class="fas fa-sad-tear fa-3x">該当するキーワードが見つかりませんでした</span>
+      <% else %>
+        <% @posts.each do |post| %>
+          <div class="col-sm-4 box-post">
+            <%= render partial: 'commitments/post_box', locals: {post: post} %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-<%= link_to "", commitment_path(@commitment), class:"fas fa-arrow-alt-circle-left" %>

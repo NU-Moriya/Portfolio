@@ -9,14 +9,16 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+   def create
+     super
+     flash[:notice] = "ログインしました！"
+   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+   def destroy
+     super
+     flash[:notice] = "ログアウトしました！"
+   end
 
   # protected
 
@@ -28,6 +30,6 @@ class Users::SessionsController < Devise::SessionsController
   def new_guest
     user = User.guest
     sign_in user
-    redirect_to user_path(user), notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to user_path(user), notice: 'ようこそ、ゲストユーザーさん!!'
   end
 end

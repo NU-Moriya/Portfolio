@@ -2,16 +2,84 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.jumbotron {
-  background-image: image-url("top-man.png");
-  background-size: cover;
-  background-position: center 60%;
+.jumbotron{
+    height: 100%;
+    background: image-url("top-man.jpeg") center;
+    background-size: cover;
 }
+
+.telop {
+  color: white;
+  font-family:'Comic Sans MS',cursive;
+  word-break: break-word
+}
+
+.sub-telop {
+  color: white;
+  font-family:'Comic Sans MS',cursive;
+  font-size: 20px;
+  position: relative; left: 20%;
+  word-break: break-word
+}
+
+.display-4 {
+  font-size: 110px;
+}
+
+.display-5 {
+  font-size: 70px;
+}
+
+.lead {
+  font-size: 30px;
+  position: relative; left: 20%;
+}
+
+.link_btn {
+  color: white;
+  font-family:'Comic Sans MS',cursive;
+  font-size: 30px;
+  text-align: center;
+}
+
 
 .about {
   background-color: #FFFACD;
+  font-family:'Comic Sans MS',cursive;
+  height:auto;
+  border-radius:30px;
+  padding:25px;
+  text-align: center;
+}
+
+.main-container {
+  background-image: image-url("about.jpg");
+  background-position: center 75%;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .howto {
-  background-color: #EEEEEE
+  text-align: center;
+  font-family:'Comic Sans MS',cursive;
+
 }
+.howto_box {
+  width: 180px;
+  height: 180px;
+  background: #f0ffff;
+  border-radius: 100%;
+}
+
+.share-box {
+  background: #FFFACD;
+  border-radius:30px;
+  text-align: center;
+  padding: 20px;
+}
+
+.main-container h1 {
+  font-size:70px;
+}
+

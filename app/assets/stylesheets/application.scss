@@ -15,6 +15,13 @@
 @import "bootstrap";
 @import "*";
 
+
+html,
+body {
+  height: 100%;
+}
+
+
  #pc-menu{
   display: block;
   }
@@ -31,6 +38,17 @@
   font-family:'Comic Sans MS',cursive;
 }
 
+.alert {
+  font-size: 15px;
+  color: red;
+  margin: 10px;
+}
+
+.notice {
+  font-size: 15px;
+  color: green;
+  margin: 10px 0px 0px 30px;
+}
 
 
 .menu-trigger,
@@ -161,18 +179,45 @@
 
 
 /*ページネーション自体のデザイン*/
-.pagination>li>a {          
+.pagination>li>a {
   border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+  color: #e6e6fa;   /*文字の色を変える*/
 }
 
 /* 表示しているページ番号のデザイン */
-.pagination>.active>a {     
-  background: #93ffe4;     /*背景の色を変える*/
+.pagination>.active>a {
+  background: #FFCCCC;     /*背景の色を変える*/
   border-radius: 15px;     /*角を丸くする*/
 }
 
 /*ホバー時のデザイン*/
-.pagination>li>a:hover {        
-  border-radius: 15px;    /*角を丸くする*/
+.pagination>li>a:hover {
+  border-radius: 15px;
+  background: #FFCCCC; /*角を丸くする*/
 }
+
+#wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: #EAD9FF;
+  text-align: center;
+}
+
+.container-all {
+  margin-top: 6rem !important;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+ul {
+  font-family:'Comic Sans MS',cursive;
+}
+

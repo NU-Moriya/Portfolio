@@ -1,15 +1,19 @@
-<div class="row justify-content-center mt-n5">
-  <div class="topic-name">
-    <h1>Edit...
-      <i class="fas fa-pencil-alt"></i>
-    </h1>
+<div class="container container-all">
+  <div class="row justify-content-center mt-n5">
+    <div class="topic-name">
+      <h1>Edit...
+        <span class="fas fa-pencil-alt"></span>
+      </h1>
+    </div>
   </div>
-</div>
-<div class="edit col-sm-6 offset-sm-3 mt-5">
-  <%= form_with(model:[@post], local: true) do |f| %>
-  	<%= f.text_area :content, class:"form-control", placeholder:"こだわりをシェアする" %>
-  	<%= f.attachment_field :image, class:"form-control far fa-image" %>
-  	<%= f.submit "Change !!" %>
-  <% end %>
-  <%= link_to "", post_path(@post), class:"fas fa-arrow-alt-circle-left" %>
+  <div class="edit col-sm-6 offset-sm-3 mt-5">
+    <%= form_with(model:[@post], local: true) do |f| %>
+    	<%= f.text_area :content, size:"50x10", class:"form-control", placeholder:"こだわりをシェアする" %>
+    	<%= f.label:image, "Image", class:"far fa-image fa-" do %>
+  		  <%= f.attachment_field :image, style:"display:none;" %>
+  		<% end %><br>
+    	<%= f.submit "Change !!" %>
+    <% end %>
+    <%= link_to "", post_path(@post), class:"fas fa-arrow-alt-circle-left" %>
+  </div>
 </div>
