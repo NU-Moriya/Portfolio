@@ -19,6 +19,16 @@
 
 .ranking {
   font-family:'Comic Sans MS',cursive;
+  font-size: 50px;
+}
+
+.ranking-user {
+  font-size: 15px;
+}
+
+.ranking-content {
+  font-size: 20px;
+  text-align: center;
 }
 
 .posting {
@@ -27,7 +37,7 @@
 .posting .col-sm-4 {
   margin-bottom: 1.5rem;
   text-align: center;
-  
+
 }
 
 .posting .col-sm-4 p {
@@ -36,6 +46,13 @@
   margin-left: .75rem;
 }
 
+
+.tr-table-post {
+  border-bottom: solid 3px #DCC2FF;
+}
+
+@media screen and (max-width: 640px) {
 .table-post {
-  overflow: scroll;
+  display: inline-block;
+}
 }

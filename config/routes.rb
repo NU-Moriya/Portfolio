@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
   
   get 'users/quit/:id' => 'users#quit', as: 'user_quit'
-  patch 'users/invalid' => 'users#invalid'
+  patch 'users/invalid/:id' => 'users#invalid', as: 'user_invalid'
   resources :users, only:[:show, :update, :edit, :index]
     namespace :admin do
       patch 'users/invalid' => 'users#invalid'

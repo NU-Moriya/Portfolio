@@ -21,13 +21,13 @@
 
       <div class="container-fid">
         <% if notice %>
-          <span class="notice">
+          <p class="notice">
             <%= notice %>
-          </span>
+          </p>
         <% elsif alert %>
-          <span class="alert">
+          <p class="alert">
             <%= alert %>
-          </sp>
+          </p>
         <% end %>
         <%= yield %>
       </div>
