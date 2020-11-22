@@ -42,13 +42,22 @@ body {
   font-size: 15px;
   color: red;
   margin: 10px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 1;
 }
+
 
 .notice {
   font-size: 15px;
-  color: green;
-  margin: 10px 0px 0px 30px;
+  color: #00FFFF;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 1;
 }
+
 
 
 .menu-trigger,
@@ -220,4 +229,3 @@ body {
 ul {
   font-family:'Comic Sans MS',cursive;
 }
-

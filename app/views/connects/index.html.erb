@@ -14,18 +14,22 @@
     <div class="offset-sm-3 col-sm-6">
       <div class="border border-warning rounded ">
         <table class="table table-hover">
-          <% @anotherEntries.each do |e| %>
-            <tr>
-              <td>
-                <%= link_to connect_path(e.connect.id) do %>
-                  <%= attachment_image_tag(e.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %>
-                  <% if e.user.classification == "法人" %>
-                    <span class="fas fa-building" style="color: green;"></span>
+           <% if @users.nil? %>
+            <p class="text-center">こだわりさんとつながってみましょう !!</p>
+          <% else %>
+            <% @anotherEntries.each do |e| %>
+              <tr>
+                <td>
+                  <%= link_to connect_path(e.connect.id) do %>
+                    <%= attachment_image_tag(e.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %>
+                    <% if e.user.classification == "法人" %>
+                      <span class="fas fa-building" style="color: green;"></span>
+                    <% end %>
+                    <%= e.user.name %>さん<br>
                   <% end %>
-                  <%= e.user.name %>さん<br>
-                <% end %>
-              </td>
-            </tr>
+                </td>
+              </tr>
+            <% end %>
           <% end %>
         </table>
       </div>
