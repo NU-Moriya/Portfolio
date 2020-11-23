@@ -42,5 +42,6 @@ https://docs.google.com/spreadsheets/d/12dH_hzwtzXALE7hzrnb6iPMMWlVsFByG4Xu53JJ9
 - 言語：HTML,CSS,JavaScript,Ruby 2.6.3 ,SQL
 - フレームワーク：Ruby on Rails 5.2.4.4
 - JSライブラリ：jQuery
-- IDE：Cloud9.
+- IDE：Cloud9
+- 
 
