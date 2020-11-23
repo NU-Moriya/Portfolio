@@ -31,7 +31,7 @@
               <td>
                 <%= user.is_valid %>
               <% if user.is_valid == "有効" && user.admin == false %>
-                <%= link_to "無効会員に変更", admin_users_invalid_path(user), class:"btn btn-outline-danger", method: :patch %>
+                <%= link_to "無効会員に変更", admin_path(user.id), class:"btn btn-outline-danger", method: :patch %>
               <% end %>
               </td>
               <td>
