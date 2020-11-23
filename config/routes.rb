@@ -8,13 +8,17 @@ Rails.application.routes.draw do
   
   root 'homes#top'
   get 'about' => 'homes#about'
-  post 'guest_sign_in' => 'homes#new_guest'
   
-  get 'users/quit' => 'users#quit'
-  patch 'users/invalid' => 'users#invalid'
+  #ゲストログイン
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
+  
+  get 'users/quit/:id' => 'users#quit', as: 'user_quit'
+  patch 'users/invalid/:id' => 'users#invalid', as: 'user_invalid'
   resources :users, only:[:show, :update, :edit, :index]
     namespace :admin do
-      patch 'users/invalid' => 'users#invalid'
+      patch 'users/invalid/:id' => 'users#invalid' 
       get 'users/search' => 'users#search'
       resources :users, only:[:index, :update]
     end
@@ -32,9 +36,9 @@ Rails.application.routes.draw do
   end
 
   
-  resources :connects, only:[:create, :show]
+  resources :connects, only:[:create, :show, :index]
   
   post 'messages' => 'messages#create'
   
-  
+  resource :inquiry, only:[:new, :create]
 end

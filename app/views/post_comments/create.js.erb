@@ -1,0 +1,3 @@
+$('#comment_button').html("<%= j(render partial: 'post_comments/comment', locals: {comments: @comments}) %>");
+$("textarea").val('')
+$('#comment_count').html("<%= @comments.count %>");

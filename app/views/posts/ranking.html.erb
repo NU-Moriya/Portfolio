@@ -1,0 +1,52 @@
+<div class="container container-all">
+  <div class="row mt-n5 mb-n5">
+    <div class="col-sm-2">
+      <%= link_to "", commitment_path(@commitment.id), class:"fas fa-arrow-alt-circle-left" %>
+    </div>
+    <div class="offset-sm-3 col-sm-7 topic-name">
+      <%= "#{@commitment.room_name} 's room" %>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center mb-5">
+    <div class="topic-name">
+      <h1>
+        <span class="fas fa-crown", style="color: gold;"></span>
+        Bravo Ranking !!
+        <span class="fas fa-hiking", style="color: #FF66CC;"></span>
+      </h1>
+    </div>
+  </div>
+  
+  <div class="col-sm-12">
+    <div class="border border-bottom-0 border-warning rounded">
+      <table class="table table-hover table-post">
+        <% @posts.each.with_index(1) do |post, i| %>
+          <tr class="tr-table-post">
+            <td class="ranking table-post"><%= "#{i}" %></td>
+            <td class="table-post" style="font-size:15px;">
+              <%= link_to user_path(post.user) do %>
+                <%= attachment_image_tag(post.user, :avatar, size: "50x50", class:"rounded-circle", fallback: "no_image.png") %><br>
+                <%= post.user.name %>
+              <% end %>
+            </td>
+            <td class="table-post" style="font-size:20px; text-align:center;">
+              <%= link_to post.content.truncate(40), post_path(post), style:"color: black;" %>
+            </td>
+            <td class="table-post">
+              <%= attachment_image_tag(post, :image, size: "100x100") %>
+            </td>
+            <td  class="table-post">
+              <span class="fas fa-comments">
+                <%= post.post_comments.count %>
+              </span>
+              <span class="fas fa-hiking" style="color: #FF66CC;">
+                <%= post.bravos.count %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

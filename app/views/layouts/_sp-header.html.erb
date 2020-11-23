@@ -1,0 +1,90 @@
+<header class="">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark d-flex justify-content-between">
+    <span class="navbar-brand">
+      こだわLink
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.png', :size => '45x35' %>
+      <% end %>
+    </span>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to '* Mypage *', user_path(current_user.id), class:"nav-link", style:"color: #DCC2FF" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '* About *', about_path, class:"nav-link mr-5", style:"color: white" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '* Codawari Room *', commitments_path, class:"nav-link mr-5", style:"color: #DCC2FF" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "* Log out *", destroy_user_session_path, class:"nav-link mr-5", style:"color: white", method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "* About *", about_path, class:"nav-link mr-5", style:"color: #DCC2FF" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "* Sign up *", new_user_registration_path, class:"nav-link mr-5", style:"color: #DCC2FF" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "* Log in *", new_user_session_path, class:"nav-link mr-5", style:"color: #DCC2FF" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "* Contact *", new_inquiry_path, class:"nav-link mr-5", style:"color: #DCC2FF" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <button class="btn btn-link d-sm-none " type="button" data-toggle="modal" data-target="#menuModal" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</header>
+<div class="modal fade fullscreen" id="menuModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">こだわLink</h5>
+        <button   type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul style="list-style-type:none;">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to '* Mypage *', user_path(current_user.id), class:"nav-link mr-5", style:"color: #DCC2FF" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '* About *', about_path, class:"nav-link mr-5", style:"color: white" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '* Codawari Room *', commitments_path, class:"nav-link mr-5", style:"color: #DCC2FF" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "* Log out *", destroy_user_session_path, class:"nav-link mr-5", style:"color: white", method: :delete %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "* About *", about_path, class:"nav-link mr-5", style:"color: #DCC2FF" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "* Sign up *", new_user_registration_path, class:"nav-link mr-5", style:"color: white" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "* Log in *", new_user_session_path, class:"nav-link mr-5",style:"color: #DCC2FF" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "* Contact *", new_inquiry_path, class:"nav-link mr-5", style:"color: white" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.fullscreen -->
+
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_08_035853) do
+ActiveRecord::Schema.define(version: 2020_11_22_155627) do
 
   create_table "bravos", force: :cascade do |t|
     t.integer "post_id", null: false
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2020_11_08_035853) do
   end
 
   create_table "connects", force: :cascade do |t|
-    t.string "connect_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +34,13 @@ ActiveRecord::Schema.define(version: 2020_11_08_035853) do
   create_table "entries", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "connect_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -108,7 +114,7 @@ ActiveRecord::Schema.define(version: 2020_11_08_035853) do
     t.text "introduction"
     t.integer "classification", default: 0, null: false
     t.boolean "admin", default: false, null: false
-    t.boolean "is_valid", default: true, null: false
+    t.boolean "is_valid", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_users_on_account_id", unique: true

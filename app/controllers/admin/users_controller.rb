@@ -4,20 +4,21 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
+
   def invalid
     @user = User.find(params[:id])
     @user.update(is_valid: false)
-    reset_session
     redirect_to admin_users_path
+    flash[:notice] = "ユーザーを無効会員に変更しました"
   end
-    
+
   def update
     @user = User.find(params[:id])
     @user.update(classification: 1)
     redirect_to admin_users_path
+    flash[:notice] = "法人区分に変更しました"
   end
-  
+
   def search
     @account_id = params[:account_id]
     if params[:account_id].empty?
@@ -25,14 +26,14 @@ class Admin::UsersController < ApplicationController
       @account_id = params[:account_id]
       @users = User.search_for(@account_id)
     end
-    
+
   end
-  
+
   private
     def admin_user
       redirect_to root_path unless current_user.admin?
     end
-    
+
     def user_params
       params.require(:user).permit(:name, :account_id, :classification, :is_valid)
     end

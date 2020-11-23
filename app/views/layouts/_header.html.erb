@@ -1,39 +1,43 @@
-<header class="navbar navbar-dark bg-dark">
-  <div class="container">
-    <nav class="nav navbar-nav navbar-left">
-      <span><%= link_to "こだわLink", root_path %></span>
-    </nav>
-    <nav class="nav navbar-nav navbar-right">
+<header class="container mb-5">
+  <nav class="navbar fixed-top navbar-dark bg-dark">
+    <span class="navbar-brand">
+      こだわLink
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.png', :size => '45x35' %>
+      <% end %>
+    </span>
+
+    <div class="navbar-nav justify-content-center">
       <ul class="nav">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Home', user_path(current_user.id), class:"fas fa-home nav-link mr-3" %>
+            <%= link_to '* Mypage *', user_path(current_user.id), class:"nav-link mr-5", style:"color: #DCC2FF" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'About', about_path, class:"fas fa-info-circle nav-link mr-3" %>
+            <%= link_to '* About *', about_path, class:"nav-link mr-5", style:"color: white" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'こだわりルーム', commitments_path, class:"fab fa-slideshare nav-link mr-3" %>
+            <%= link_to '* Codawari Room *', commitments_path, class:"nav-link mr-5", style:"color: #DCC2FF" %>
           </li>
           <li class="nav-item">
-            <%= link_to "logout", destroy_user_session_path, class:"fas fa-sign-out-alt nav-link mr-3", method: :delete %>
+            <%= link_to "* Log out *", destroy_user_session_path, class:"nav-link mr-5", style:"color: white", method: :delete %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Home", root_path, class: "fas fa-home nav-link mr-3" %>
+            <%= link_to "* About *", about_path, class:"nav-link mr-5", style:"color: #DCC2FF" %>
           </li>
           <li class="nav-item">
-            <%= link_to "About", about_path, class: "fas fa-info-circle nav-link mr-3" %>
+            <%= link_to "* Sign up *", new_user_registration_path, class:"nav-link mr-5", style:"color: white" %>
           </li>
           <li class="nav-item">
-            <%= link_to "sign up", new_user_registration_path, class: "fas fa-edit nav-link mr-3" %>
+            <%= link_to "* Log in *", new_user_session_path, class:"nav-link mr-5", style:"color: #DCC2FF" %>
           </li>
           <li class="nav-item">
-            <%= link_to "login", new_user_session_path, class: "fas fa-sign-in-alt nav-link mr-3" %>
+            <%= link_to "* Contact *", new_inquiry_path, class:"nav-link mr-5", style:"color: white" %>
           </li>
         <% end %>
       </ul>
-    </nav>
-  </div> <!--containerのとじタグ-->
+    </div>
+  </nav>
 </header>
-    
+

@@ -1,0 +1,1 @@
+$('#likes_buttons_<%= @commitment.id %>').html("<%= j(render partial: 'like_commitments/like_commitment', locals: { commitment: @commitment}) %>");
