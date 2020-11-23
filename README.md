@@ -42,8 +42,5 @@ https://docs.google.com/spreadsheets/d/12dH_hzwtzXALE7hzrnb6iPMMWlVsFByG4Xu53JJ9
 - 言語：HTML,CSS,JavaScript,Ruby 2.6.3 ,SQL
 - フレームワーク：Ruby on Rails 5.2.4.4
 - JSライブラリ：jQuery
-- 仮想環境：Cloud9
+- IDE：Cloud9
 
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
