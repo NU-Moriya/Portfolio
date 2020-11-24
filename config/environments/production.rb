@@ -92,9 +92,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   
-   #config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+ 
   
-    config.action_mailer.default_url_options = { protocol: 'https', host: 'https:codawalink.net'}
+    config.action_mailer.default_url_options = { protocol: 'http', host: 'http://codawalink.net'}
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.delivery_method = :smtp
     
