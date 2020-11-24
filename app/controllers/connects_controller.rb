@@ -19,7 +19,7 @@ class ConnectsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-  
+
   def index
     @user = current_user
     @currentEntries = current_user.entries
@@ -28,8 +28,9 @@ class ConnectsController < ApplicationController
     @currentEntries.each do |entry|
       myConnectIds << entry.connect.id
     end
-                                                            #user_id が @user.idでないEntry
-    @anotherEntries = Entry.where(connect_id: myConnectIds).where('user_id != ?',@user.id).page(params[:page]).per(5)
+                                                            #user_id が @user.idでないEntry  子モデルのconnectデータも一緒にviewに持っていく
+    @anotherEntries = Entry.where(connect_id: myConnectIds).where('user_id != ?',@user.id).includes(:connect).page(params[:page]).per(5)
+    
   end
 
 end

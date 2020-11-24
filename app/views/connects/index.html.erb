@@ -18,26 +18,28 @@
       <div class="border border-warning rounded ">
         <table class="table table-hover">
           <% @anotherEntries.each do |e| %>
-            <tr>
-              <td>
-                <%= link_to connect_path(e.connect.id) do %>
-                  <%= attachment_image_tag(e.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %><br>
-                  <% if e.user.classification == "法人" %>
-                    <span class="fas fa-building" style="color: green;"></span>
+          　<% if e.connect.messages.last %>
+            　<tr>
+                <td>
+                  <%= link_to connect_path(e.connect.id) do %>
+                    <%= attachment_image_tag(e.user, :avatar, size: "60x60", class:"rounded-circle", fallback: "no_image.png") %><br>
+                    <% if e.user.classification == "法人" %>
+                      <span class="fas fa-building" style="color: green;"></span>
+                    <% end %>
+                    <%= e.user.name %>さん<br>
                   <% end %>
-                  <%= e.user.name %>さん<br>
-                <% end %>
-              </td>
-              <td>
-                <p><%= Message.find_by(id: e.connect.message_ids.last).content.truncate(45) %></p>
-                <p class="align-bottom" style="font-size:5px;">
-        		      <%= Message.find_by(id: e.connect.message_ids.last).created_at.to_s(:datetime_jp) %>
-        		    </p>
-        		    <p class="align-bottom" style="font-size:5px;">
-        		      <span class="last_message">Last message by</span> <%= Message.find_by(id: e.connect.message_ids.last).user.name %>
-        		    </p>
-              </td>
-            </tr>
+                </td>
+                <td>
+                  <p><%= e.connect.messages.last.content.truncate(45) %></p>
+                  <p class="align-bottom" style="font-size:5px;">
+          		      <%= e.connect.messages.last.created_at.to_s(:datetime_jp) %>
+          		    </p>
+          		    <p class="align-bottom" style="font-size:5px;">
+          		      <span class="last_message">Last message by</span> <%= e.connect.messages.last.user.name %>
+          		    </p>
+              　</td>
+              </tr>
+            <% end %>
           <% end %>
         </table>
       </div>
