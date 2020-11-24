@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   def ranking
     @commitment = Commitment.find(params[:commitment_id])
    #postに関連するbravoを引っ張ってくる。whereでその範囲を絞って、post_idをグループ化。その後ランキング化
-    @posts= Post.joins(:bravos).where(commitment_id: params[:commitment_id]).group(:post_id).order('count(user_id) desc').limit(5)
+    @posts= Post.joins(:bravos).where(commitment_id: params[:commitment_id]).group(:post_id).order('count("bravos.user_id") desc').limit(5)
   end
 
   private

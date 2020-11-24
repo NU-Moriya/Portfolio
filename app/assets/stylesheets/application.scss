@@ -14,7 +14,7 @@
  */
 @import "bootstrap";
 @import "*";
-
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
 html,
 body {
@@ -31,11 +31,11 @@ body {
   }
 
 .topic-name {
-  font-family:'Comic Sans MS',cursive;
+  font-family:'Gloria Hallelujah','Comic Sans MS',cursive;
 }
 
 .justify-content-center {
-  font-family:'Comic Sans MS',cursive;
+  font-family:'Gloria Hallelujah', 'Comic Sans MS',cursive;
 }
 
 .alert {
@@ -227,5 +227,5 @@ body {
 }
 
 ul {
-  font-family:'Comic Sans MS',cursive;
+  font-family:'Gloria Hallelujah','Comic Sans MS',cursive;
 }
