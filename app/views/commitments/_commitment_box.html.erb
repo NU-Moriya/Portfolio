@@ -1,5 +1,5 @@
 <% commitments.each do |commitment| %>
-  <div class="col-md-4 box-commitment">
+  <div class="col-md-4">
     <div class="card-deck mb-3 text-center">
       <div class="card mb-4 shadow-sm">
         <div class="card-header">
@@ -9,8 +9,8 @@
         </div>
         <div class="card-body">
           <h6>Knock !!</h6>
-          <h1 class="card-title pricing-card-title"><i class="fas fa-door-open"></i></h1>
-            <%= link_to "Enter your .. !!", commitment_path(commitment.id), class:"btn btn-outline-secondary btn-lg btn-block" %>
+          <h1 class="card-title pricing-card-title"><span class="fas fa-door-open"></span></h1>
+            <%= link_to "Enter your .. !!", commitment_path(commitment.id), class:" enter-btn btn btn-outline-secondary btn-lg btn-block" %>
         </div>
       </div>
     </div>

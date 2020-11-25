@@ -48,6 +48,13 @@ body {
   z-index: 1;
 }
 
+ul {
+  font-family: 'Comic Sans MS', 'Gloria Hallelujah','Meiryo UI';
+}
+
+.navbar-brand {
+  font-family: 'Gloria Hallelujah', 'Comic Sans MS', cursive;
+}
 
 .notice {
   font-size: 15px;
@@ -215,6 +222,8 @@ body {
   margin-top: auto;
   background-color: #EAD9FF;
   text-align: center;
+  font-family: 'Gloria Hallelujah', 'Comic Sans MS', cursive;
+
 }
 
 .container-all {
@@ -226,6 +235,3 @@ body {
   height: 30px;
 }
 
-ul {
-  font-family: 'Comic Sans MS', 'Gloria Hallelujah','Meiryo UI';
-}

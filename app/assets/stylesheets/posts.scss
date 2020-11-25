@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .box-post {
   font-size:15px;
-  font-family:'Gloria Hallelujah', 'Comic Sans MS',cursive;
   border-bottom: solid 3px #FFB6C1;
 }
 
@@ -34,16 +33,10 @@
 .posting {
   align-items: flex-end;
 }
-.posting .col-sm-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
 
-}
 
-.posting .col-sm-4 p {
-  font-family:'Gloria Hallelujah','Comic Sans MS',cursive;
-  margin-right: .75rem;
-  margin-left: .75rem;
+.posting .col-sm-4 .view-btn {
+  font-family: 'Comic Sans MS', 'Gloria Hallelujah', cursive;
 }
 
 

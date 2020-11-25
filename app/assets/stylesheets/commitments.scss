@@ -4,33 +4,43 @@
 
 .room_name {
   font-size:18px;
-  font-family:'Gloria Hallelujah', 'Comic Sans MS',cursive;
+  font-family:'Comic Sans MS','Gloria Hallelujah', cursive;
 }
 
 .form_search {
   font-size:18px;
-  font-family:'Gloria Hallelujah', 'Comic Sans MS',cursive;
+  font-family:'Comic Sans MS', 'Gloria Hallelujah',cursive;
 }
 
 .post_user {
   font-size:10px;
 }
 
+.post-user span {
+  font-family:'Comic Sans MS',cursive;
+}
 .posting .col-sm-4 {
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .posting .col-sm-4 p {
-  font-family:'Gloria Hallelujah','Comic Sans MS',cursive;
   margin-right: .75rem;
   margin-left: .75rem;
 }
 
-.box-commitment {
-  font-family:'Gloria Hallelujah', 'Comic Sans MS',cursive;
+.card-header {
+  font-family:'Comic Sans MS', 'Gloria Hallelujah',cursive;
 }
 
 .font-weight-normal {
   display: inline-block;
+}
+
+.card-body h6 {
+  font-family:'Gloria Hallelujah',cursive;
+}
+
+.enter-btn {
+  font-family:'Comic Sans MS', 'Gloria Hallelujah',cursive;
 }
