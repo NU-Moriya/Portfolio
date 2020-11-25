@@ -40,6 +40,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @commitment = @post.commitment_id
     @post.destroy
+    flash[:notice] ="シェアしたこだわりを削除しました！"
     redirect_to controller: :commitments, action: :show, id: @commitment
   end
 

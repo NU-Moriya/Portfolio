@@ -12,10 +12,10 @@
   
   <div class="row">
   <% if @commitments.nil? %>
-     <span class="fas fa-sad-tear fa-3x">検索キーワードを入力してください</span>
+     <span class="fas fa-sad-tear">検索キーワードを入力してください</span>
   <% else %>
     <% if @commitments.empty? %>
-      <span class="fas fa-sad-tear fa-2x">該当するキーワードが見つかりませんでした</span>
+      <span class="fas fa-sad-tear">該当するキーワードが見つかりませんでした</span>
     <% else %>
       <%= render partial: 'commitments/commitment_box', locals: { commitments: @commitments} %>
     <% end %>

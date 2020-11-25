@@ -3,7 +3,7 @@
   <p>
     <%= link_to user_path(post.user) do %>
       <%= attachment_image_tag(post.user, :avatar, size: "30x30", class:"rounded-circle", fallback: "no_image.png") %><br>
-      <span style="color:black;"><%= post.user.name %></span>
+      <span class="postuser" style="color:black;"><%= post.user.name %></span>
     <% end %>
     <span class="fas fa-comments">
       <%= post.post_comments.count %>
@@ -12,4 +12,4 @@
       <%= post.bravos.count %>
     </span>
   </p>
-  <p><%= link_to "View Detail", post_path(post), class:"btn btn-light btn-lg btn-block" %></p>
+  <p><%= link_to "View Detail", post_path(post), class:"view-btn btn btn-light btn-lg btn-block" %></p>

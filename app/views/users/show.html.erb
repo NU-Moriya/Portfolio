@@ -33,10 +33,10 @@
         <div class="row mt-3">
           <% if @user.id == current_user.id %>
             <div class="offset-sm-3 col-sm-3">
-              <%= link_to "", connects_path(@user), class:"far fa-envelope fa-2x" %>
+              <%= link_to "", connects_path(@user), class:"far fa-envelope fa-2x", style:"color: #FF9999;" %>
             </div>
             <div class="col-sm-3">
-              <%= link_to "", edit_user_path(@user), class:"fas fa-user-edit fa-lg" %>
+              <%= link_to "", edit_user_path(@user), class:"fas fa-user-edit fa-lg", style:"color: #CC99CC;" %>
             </div>
           <% end %>
         </div>
@@ -67,7 +67,7 @@
   
       <div class="col-sm-6">
         <span class="fas fa-check">
-          <span>check!!</span>
+          <span class="check-mark">check!!</span>
         </span>
         <div class="border border-warning rounded ">
           <table class="table table-hover">
@@ -76,8 +76,8 @@
             </tr>
             <% @commitments.each do |commitment| %>
             <tr>
-              <td class="text-center", style="color: black;">
-                <%= link_to commitment.room_name, commitment_path(commitment.id) %>
+              <td class="text-center">
+                <%= link_to commitment.room_name, commitment_path(commitment.id), style:"color: #000099;" %>
               </td>
             </tr>
             <% end %>
