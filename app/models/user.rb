@@ -14,8 +14,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
 
-  validates :account_id, presence: true,  length: {maximum: 20, minimum: 1}
-  validates_uniqueness_of :account_id
+  validates :account_name, presence: true,  length: {maximum: 20, minimum: 1}, uniqueness: true
   validates :name, presence: true, length: {maximum: 20, minimum: 1}
   validates :email, presence: true, uniqueness: true
 
@@ -23,16 +22,16 @@ class User < ApplicationRecord
   enum classification: { 一般: 0, 法人: 1}
   enum is_valid: { 有効: true, 無効: false }
 
-  def self.search_for(account_id)
-    User.where(['account_id LIKE ?', "%#{account_id}%"])
+  def self.search_for(account_name)
+    User.where(['account_name LIKE ?', "%#{account_name}%"])
   end
 
   def self.guest
-    find_or_create_by!(email: 'guest@example.com', name: 'guest', account_id:'guest') do |user|
+    find_or_create_by!(email: 'guest@example.com', name: 'guest', account_name:'guest') do |user|
       user.password = SecureRandom.urlsafe_base64
       #user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
   end
 
-  
+
 end

@@ -1,7 +1,7 @@
 <div class="container container-all mt-5">
   <div class="row justify-content-center">
     <div class="topic-name">
-      <h1>Result Search for "<%= @account_id %>"
+      <h1>Result Search for "<%= @account_name %>"
         <i class="fas fa-users"></i>
       </h1>
     </div>
@@ -27,7 +27,7 @@
           <% @users.each do |user| %>
             <tr>
               <td><%= user.name %></td>
-              <td><%= user.account_id %></td>
+              <td><%= user.account_name %></td>
               <td>
                 <%= user.is_valid %>
               <% if user.is_valid == "有効" && user.admin == false %>

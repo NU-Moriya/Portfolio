@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_155627) do
+ActiveRecord::Schema.define(version: 2020_11_26_141452) do
 
   create_table "bravos", force: :cascade do |t|
     t.integer "post_id", null: false
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2020_11_22_155627) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.string "account_id", null: false
+    t.string "account_name", null: false
     t.string "avatar_id"
     t.text "introduction"
     t.integer "classification", default: 0, null: false
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 2020_11_22_155627) do
     t.boolean "is_valid", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_users_on_account_id", unique: true
+    t.index ["account_name"], name: "index_users_on_account_name", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
