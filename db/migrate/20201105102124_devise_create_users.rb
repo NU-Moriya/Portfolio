@@ -32,7 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
       t.string :name, null: false
-      t.string :account_id, null: false
+      t.string :account_name, null: false
       t.string :avatar_id
       t.text   :introduction
       t.integer :type, null: false, default: 0
@@ -41,7 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.timestamps null: false
     end
-    add_index :users, :account_id,          unique: true
+    add_index :users, :account_name,          unique: true
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true

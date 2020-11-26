@@ -7,8 +7,8 @@
       <div class="form_search">
         <%= form_with url: admin_users_search_path, method: :get, local: true do |f| %>
           <span class="fas fa-search"></span>
-          <%= f.label :account_id, "account_id" %><br>
-          <%= f.text_field :account_id, placeholder:"userを検索" %><br>
+          <%= f.label :account_name, "account_name" %><br>
+          <%= f.text_field :account_name, placeholder:"userを検索" %><br>
           <%= f.submit 'Go !!' %>
         <% end %>
       </div>
@@ -27,7 +27,7 @@
           <% @users.each do |user| %>
             <tr>
               <td><%= user.name %></td>
-              <td><%= user.account_id %></td>
+              <td><%= user.account_name %></td>
               <td>
                 <%= user.is_valid %>
               <% if user.is_valid == "有効" && user.admin == false %>

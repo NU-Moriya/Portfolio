@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(name: "admin",
-             account_id: "admin",
+             account_name: "admin",
              classification: 0,
              is_valid: true,
              email: ENV['ADMIN_EMAIL'],
@@ -16,7 +16,7 @@ User.create!(name: "admin",
              admin: true)
              
 User.create!(name: "かぼちゃん",
-             account_id: "pumpkin",
+             account_name: "pumpkin",
              classification: 0,
              is_valid: true,
              email: "b@b",
@@ -25,7 +25,7 @@ User.create!(name: "かぼちゃん",
              admin: false)
              
 User.create!(name: "インカのめざめ",
-             account_id: "potato",
+             account_name: "potato",
              classification: 0,
              is_valid: true,
              email: "c@c",
@@ -34,7 +34,7 @@ User.create!(name: "インカのめざめ",
              admin: false)
              
 User.create!(name: "のぶちん",
-             account_id: "nobuchi",
+             account_name: "nobuchi",
              classification: 0,
              is_valid: true,
              email: "d@d",
@@ -43,7 +43,7 @@ User.create!(name: "のぶちん",
              admin: false)
              
 User.create!(name: "ずんちゃん",
-             account_id: "zunchin",
+             account_name: "zunchin",
              classification: 0,
              is_valid: true,
              email: "e@e",
@@ -52,7 +52,7 @@ User.create!(name: "ずんちゃん",
              admin: false)
 
 User.create!(name: "ねっち",
-             account_id: "sakane",
+             account_name: "sakane",
              classification: 0,
              is_valid: true,
              email: "f@f",

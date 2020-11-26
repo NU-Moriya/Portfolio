@@ -20,11 +20,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def search
-    @account_id = params[:account_id]
-    if params[:account_id].empty?
+    @account_name = params[:account_name]
+    if params[:account_name].empty?
     else
-      @account_id = params[:account_id]
-      @users = User.search_for(@account_id)
+      @account_name = params[:account_name]
+      @users = User.search_for(@account_name)
     end
 
   end
@@ -35,6 +35,6 @@ class Admin::UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :account_id, :classification, :is_valid)
+      params.require(:user).permit(:name, :account_name, :classification, :is_valid)
     end
 end
