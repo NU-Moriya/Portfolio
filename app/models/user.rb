@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
 
   validates :account_name, presence: true,  length: {maximum: 20, minimum: 1}
-  validates_uniqueness_of :name, :case_sensitive => true
+  validates_uniqueness_of :account_name, :case_sensitive => true
   validates :name, presence: true, length: {maximum: 20, minimum: 1}
   validates :email, presence: true, uniqueness: true
 
