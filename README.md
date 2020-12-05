@@ -51,7 +51,7 @@
 ### テーブル定義書
 [詳細をみる](https://docs.google.com/spreadsheets/d/12dH_hzwtzXALE7hzrnb6iPMMWlVsFByG4Xu53JJ97II/edit#gid=0)
 
-###AWS構成図
+### AWS構成図
 ![AWS 構成図](https://user-images.githubusercontent.com/68894426/101237652-e88bfe00-371d-11eb-8f9e-9c80dbd28388.jpg)
 
 ## 開発環境
