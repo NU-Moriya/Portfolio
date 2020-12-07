@@ -28,6 +28,6 @@ class ConnectsController < ApplicationController
       myConnectIds << entry.connect.id
     end
     # user_id が @user.idでないEntry  子モデルのconnectデータも一緒にviewに持っていく
-    @anotherEntries = Entry.where(connect_id: myConnectIds).where('user_id != ?', @user.id).includes(:connect).page(params[:page]).per(5)
+    @anotherEntries = Entry.where(connect_id: myConnectIds).where('user_id != ?', @user.id).includes(connect: :messages).page(params[:page]).per(5)
   end
 end
