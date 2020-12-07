@@ -10,7 +10,6 @@ class CommitmentsController < ApplicationController
     @commitment = Commitment.find(params[:id])
     @post = Post.new
     @posts = @commitment.posts.all.page(params[:page]).per(6)
-
   end
 
   def create
@@ -31,9 +30,8 @@ class CommitmentsController < ApplicationController
   end
 
   private
-    def commitment_params
-      params.require(:commitment).permit(:room_name)
-    end
 
-
+  def commitment_params
+    params.require(:commitment).permit(:room_name)
+  end
 end

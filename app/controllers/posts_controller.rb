@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:update, :edit, :destroy] 
+  before_action :ensure_correct_user, only: [:update, :edit, :destroy]
 
   def create
-
     @commitment = Commitment.find(params["post"]["commitment_id"])
     post = Post.new(post_params)
     post.user_id = current_user.id
@@ -19,7 +18,6 @@ class PostsController < ApplicationController
     @commitment = @post.commitment_id
     @comment = PostComment.new
     @comments = @post.post_comments
-
   end
 
   def edit
@@ -40,7 +38,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @commitment = @post.commitment_id
     @post.destroy
-    flash[:notice] ="シェアしたこだわりを削除しました！"
+    flash[:notice] = "シェアしたこだわりを削除しました！"
     redirect_to controller: :commitments, action: :show, id: @commitment
   end
 
@@ -55,20 +53,20 @@ class PostsController < ApplicationController
 
   def ranking
     @commitment = Commitment.find(params[:commitment_id])
-   #postに関連するbravoを引っ張ってくる。whereでその範囲を絞って、post_idをグループ化。その後ランキング化
-    @posts= Post.joins(:bravos).where(commitment_id: params[:commitment_id]).group(:post_id).order('count("bravos.user_id") desc').limit(5)
+    # postに関連するbravoを引っ張ってくる。whereでその範囲を絞って、post_idをグループ化。その後ランキング化
+    @posts = Post.joins(:bravos).where(commitment_id: params[:commitment_id]).group(:post_id).order('count("bravos.user_id") desc').limit(5)
   end
 
   private
+
   def post_params
     params.require(:post).permit(:content, :image, :commitment_id)
   end
-  
+
   def ensure_correct_user
     post = current_user.posts.find_by(id: params[:id])
     unless post
       redirect_to user_path(current_user)
     end
-    
   end
 end

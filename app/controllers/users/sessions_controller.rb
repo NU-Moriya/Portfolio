@@ -10,16 +10,16 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-   def create
-     super
-     flash[:notice] = "ログインしました！"
-   end
+  def create
+    super
+    flash[:notice] = "ログインしました！"
+  end
 
   # DELETE /resource/sign_out
-   def destroy
-     super
-     flash[:notice] = "ログアウトしました！"
-   end
+  def destroy
+    super
+    flash[:notice] = "ログアウトしました！"
+  end
 
   # protected
 
@@ -34,7 +34,6 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to user_path(user), notice: 'ようこそ、ゲストユーザーさん!!'
   end
 
-
   def reject_user
     @user = User.find_by(email: params[:user][:email].downcase)
     if @user
@@ -45,4 +44,3 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 end
-

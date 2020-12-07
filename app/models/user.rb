@@ -14,13 +14,12 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
 
-  validates :account_name, presence: true,  length: {maximum: 20, minimum: 1}
+  validates :account_name, presence: true, length: { maximum: 20, minimum: 1 }
   validates_uniqueness_of :account_name, :case_sensitive => true
-  validates :name, presence: true, length: {maximum: 20, minimum: 1}
+  validates :name, presence: true, length: { maximum: 20, minimum: 1 }
   validates :email, presence: true, uniqueness: true
 
-
-  enum classification: { 一般: 0, 法人: 1}
+  enum classification: { 一般: 0, 法人: 1 }
   enum is_valid: { 有効: true, 無効: false }
 
   def self.search_for(account_name)
@@ -28,10 +27,8 @@ class User < ApplicationRecord
   end
 
   def self.guest
-    find_or_create_by!(email: 'guest@example.com', name: 'guest', account_name:'guest') do |user|
+    find_or_create_by!(email: 'guest@example.com', name: 'guest', account_name: 'guest') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
   end
-
-
 end

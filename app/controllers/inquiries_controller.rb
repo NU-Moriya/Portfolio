@@ -1,5 +1,4 @@
 class InquiriesController < ApplicationController
-
   def new
     @inquiry = Inquiry.new
   end
@@ -20,5 +19,4 @@ class InquiriesController < ApplicationController
   def inquiry_params
     params.require(:inquiry).permit(:name, :message)
   end
-
 end
