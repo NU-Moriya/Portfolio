@@ -1,5 +1,4 @@
 class ConnectsController < ApplicationController
-
   before_action :authenticate_user!
 
   def create
@@ -11,7 +10,7 @@ class ConnectsController < ApplicationController
 
   def show
     @connect = Connect.find(params[:id])
-    if Entry.where(user_id: current_user.id,connect_id: @connect.id).present?
+    if Entry.where(user_id: current_user.id, connect_id: @connect.id).present?
       @messages = @connect.messages
       @message = Message.new
       @entries = @connect.entries
@@ -28,9 +27,7 @@ class ConnectsController < ApplicationController
     @currentEntries.each do |entry|
       myConnectIds << entry.connect.id
     end
-                                                            #user_id が @user.idでないEntry  子モデルのconnectデータも一緒にviewに持っていく
-    @anotherEntries = Entry.where(connect_id: myConnectIds).where('user_id != ?',@user.id).includes(:connect).page(params[:page]).per(5)
-    
+    # user_id が @user.idでないEntry  子モデルのconnectデータも一緒にviewに持っていく
+    @anotherEntries = Entry.where(connect_id: myConnectIds).where('user_id != ?', @user.id).includes(:connect).page(params[:page]).per(5)
   end
-
 end

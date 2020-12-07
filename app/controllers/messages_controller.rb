@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-  
   before_action :authenticate_user!, only: [:create]
 
   def create
@@ -10,6 +9,4 @@ class MessagesController < ApplicationController
     end
     redirect_to "/connects/#{@message.connect_id}"
   end
-  
-  
 end

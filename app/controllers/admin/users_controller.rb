@@ -26,15 +26,15 @@ class Admin::UsersController < ApplicationController
       @account_name = params[:account_name]
       @users = User.search_for(@account_name)
     end
-
   end
 
   private
-    def admin_user
-      redirect_to root_path unless current_user.admin?
-    end
 
-    def user_params
-      params.require(:user).permit(:name, :account_name, :classification, :is_valid)
-    end
+  def admin_user
+    redirect_to root_path unless current_user.admin?
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :account_name, :classification, :is_valid)
+  end
 end
