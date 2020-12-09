@@ -38,7 +38,6 @@ RSpec.describe User, type: :model do
     it "アカウントネームが20文字以上の場合保存されない" do
       @user.account_name = "a" * 21
       @user.valid?
-      puts @user.errors[:account_name]
       expect(@user.errors[:account_name]).to include("は20文字以内で入力してください")
     end
 
