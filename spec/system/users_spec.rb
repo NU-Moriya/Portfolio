@@ -96,6 +96,21 @@ RSpec.describe "Users", type: :system do
             expect(current_path).to eq('/users/' + user.id.to_s)
           end
         end
+        context 'プロフィールの編集' do
+          it '編集に成功する' do
+            visit edit_user_path(user)
+            click_button 'Change !!'
+            expect(page).to have_content '編集完了しました!'
+            expect(current_path).to eq('/users/' + user.id.to_s)
+          end
+          it '編集に失敗する' do
+            visit edit_user_path(user)
+            fill_in 'user[name]', with: ''
+            click_button 'Change !!'
+            expect(page).to have_content 'error'
+            expect(current_path).to eq('/users/' + user.id.to_s)
+          end
+        end
       end
     end
   end
