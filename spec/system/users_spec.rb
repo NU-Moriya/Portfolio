@@ -90,6 +90,12 @@ RSpec.describe "Users", type: :system do
             expect(current_path).to eq edit_user_path(user)
           end
         end
+        context '他人の編集画面への遷移' do
+          it '遷移できない' do
+            visit edit_user_path(user2)
+            expect(current_path).to eq('/users/' + user.id.to_s)
+          end
+        end
       end
     end
   end

@@ -7,6 +7,8 @@ RSpec.describe User, type: :model do
   end
 
   describe "バリデーションのテスト" do
+
+
     it "ユーザーネーム、アカウントネーム、メールアドレス、パスワードがあれば有効な状態であること" do
       expect(@user).to be_valid
     end
@@ -29,8 +31,10 @@ RSpec.describe User, type: :model do
       expect(@user.errors[:account_name]).to include("を入力してください")
     end
 
+
     it "すでに登録されているアカウントネームが入力された場合保存されない" do
-      FactoryBot.create(:user)
+      persisted_user = FactoryBot.create(:user, account_name: 'Jhon')
+      @user = FactoryBot.build(:user, account_name: 'Jhon')
       @user.valid?
       expect(@user.errors[:account_name]).to include("はすでに存在します")
     end
@@ -48,7 +52,8 @@ RSpec.describe User, type: :model do
     end
 
     it "すでに登録されているメールアドレスが入力された場合保存されない" do
-      FactoryBot.create(:user)
+      persisted_user = FactoryBot.create(:user, email: 'Jhon@test.com')
+      @user = FactoryBot.build(:user, email: 'Jhon@test.com')
       @user.valid?
       expect(@user.errors[:email]).to include("はすでに存在します")
     end
