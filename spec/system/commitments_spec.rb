@@ -74,5 +74,31 @@ RSpec.describe "Commitments", type: :system do
         end
       end
     end
+    describe "詳細画面のテスト" do
+      let!(:post){FactoryBot.create(:post)}
+      before do
+        visit commitment_path(commitment)
+      end
+      context "表示の確認" do
+        it "Keyword と表示される" do
+          expect(page).to have_content "Keyword"
+        end
+        it "新規投稿用のShareとタイトルが表示される" do
+          expect(page).to have_content "Share"
+        end
+        it "こだわりシェアの入力フォームが表示される" do
+          expect(page).to have_field "post[content]"
+        end
+        it "シェアしたこだわりが表示される" do
+          expect(page).to have_content(post.content)
+        end
+        it "こだわりをシェアしたユーザーの名前が表示される" do
+          expect(page).to have_content(post.user.name)
+        end
+        it 'シェアしたこだわり詳細ボタンが表示される' do
+  		  	expect(page).to have_link "View Detail", href: post_path(post)
+  		  end
+      end
+    end
   end
 end
