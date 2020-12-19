@@ -98,6 +98,9 @@ RSpec.describe "Commitments", type: :system do
         it 'シェアしたこだわり詳細ボタンが表示される' do
   		  	expect(page).to have_link "View Detail", href: post_path(post)
   		  end
+  		  it 'Bravoのランキングリンクボタンが表示される' do
+  		    expect(page).to have_link "", href: posts_ranking_path(commitment_id: commitment.id)
+  		  end
       end
     end
   end
