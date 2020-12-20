@@ -76,6 +76,8 @@ RSpec.describe "Commitments", type: :system do
     end
     describe "詳細画面のテスト" do
       let!(:post){FactoryBot.create(:post)}
+      let!(:post_comment){FactoryBot.create(:post_comment)}
+      let!(:bravo){FactoryBot.create(:bravo)}
       before do
         visit commitment_path(commitment)
       end
@@ -97,6 +99,15 @@ RSpec.describe "Commitments", type: :system do
         end
         it 'シェアしたこだわり詳細ボタンが表示される' do
   		  	expect(page).to have_link "View Detail", href: post_path(post)
+  		  end
+  		  it 'こだわりの内容が表示される' do
+  		    expect(page).to have_content(post.content)
+  		  end
+  		  it 'postに対してのコメント数が表示される' do
+  		    expect(page).to have_content(post.post_comments.count)
+  		  end
+  		  it 'postに対してのBravo数が表示される' do
+  		    expect(page).to have_content(post.bravos.count)
   		  end
   		  it 'Bravoのランキングリンクボタンが表示される' do
   		    expect(page).to have_link "", href: posts_ranking_path(commitment_id: commitment.id)
