@@ -37,7 +37,7 @@
         <div class="col-sm-6 offset-3">
           <% if @post.user.id == current_user.id %>
           	<%= link_to "", edit_post_path(@post), class:"fas fa-eraser", style:"padding-right: 10px; color: #66FF33;" %>
-          	<%= link_to "", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class:"fas fa-trash-alt", style:"color: #FF3366" %>
+          	<%= link_to "", post_path(@post), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class:"fas fa-trash", style:"color: #FF3366" %>
           <% end %>
         </div>
       </div>
