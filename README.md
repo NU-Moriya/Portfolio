@@ -52,7 +52,7 @@
 [詳細をみる](https://docs.google.com/spreadsheets/d/12dH_hzwtzXALE7hzrnb6iPMMWlVsFByG4Xu53JJ97II/edit#gid=0)
 
 ### AWS構成図
-![AWS 構成図](https://user-images.githubusercontent.com/68894426/101237652-e88bfe00-371d-11eb-8f9e-9c80dbd28388.jpg)
+![AWS 構成図](https://user-images.githubusercontent.com/68894426/102882669-10a38d00-4492-11eb-8acd-f840587f8f4c.jpg)
 
 ## 開発環境
 - OS：Linux(CentOS)
