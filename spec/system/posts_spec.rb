@@ -5,7 +5,8 @@ RSpec.describe "Posts", type: :system do
     let!(:user){FactoryBot.create(:user)}
     let(:user2){FactoryBot.create(:user)}
     let!(:commitment){FactoryBot.create(:commitment)}
-    let!(:post){FactoryBot.create(:post)}
+    let!(:post){FactoryBot.create(:post, user:user)}
+    let(:post2){FactoryBot.create(:post, user:user2)}
     before do
     	visit new_user_session_path
     	fill_in 'user[email]', with: user.email
@@ -112,6 +113,29 @@ RSpec.describe "Posts", type: :system do
           it 'postの編集画面が表示される' do
             visit edit_post_path(post)
             expect(page).to have_content "Edit..."
+          end
+          it '他人がシェアしたこだわり編集画面へ遷移できない' do
+            visit edit_post_path(post2)
+            expect(current_path).to eq('/users/' + user.id.to_s)
+          end
+          it 'postの編集に成功する' do
+            visit edit_post_path(post)
+            click_button 'Change !!'
+            expect(page).to have_content 'シェアしたこだわりを変更しました！'
+            expect(current_path).to eq('/posts/' + post.id.to_s)
+          end
+          it '編集に失敗する' do
+            visit edit_post_path(post)
+            fill_in 'post[content]', with: ''
+            click_button 'Change !!'
+            expect(current_path).to eq('/posts/' + user.id.to_s)
+          end
+        end
+        context "削除のテスト" do
+          it '削除できる' do
+            find('.fa-trash').click
+            expect(page).to have_content 'シェアしたこだわりを削除しました！'
+            expect(current_path).to eq commitment_path(commitment)
           end
         end
       end
