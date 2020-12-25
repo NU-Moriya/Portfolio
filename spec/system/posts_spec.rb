@@ -60,7 +60,7 @@ RSpec.describe "Posts", type: :system do
     end
     describe "post 詳細画面のテスト" do
       let!(:post_comment){FactoryBot.create(:post_comment)}
-      let!(:bravo){FactoryBot.create(:bravo)}
+      let!(:bravo){FactoryBot.create(:bravo, user_id: user.id, post_id: post.id)}
       before do
         visit commitments_path
         visit commitment_path(commitment)
@@ -136,6 +136,12 @@ RSpec.describe "Posts", type: :system do
             find('.fa-trash').click
             expect(page).to have_content 'シェアしたこだわりを削除しました！'
             expect(current_path).to eq commitment_path(commitment)
+          end
+        end
+        context "Bravoに関するテスト" do
+          it "Bravoができる" do
+            find(".fa-hiking").click
+            expect(page).to have_css(".fa-hiking", :style => "color: #FF66CC;")
           end
         end
       end
