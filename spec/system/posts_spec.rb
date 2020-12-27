@@ -59,7 +59,7 @@ RSpec.describe "Posts", type: :system do
       end
     end
     describe "post 詳細画面のテスト" do
-      let!(:post_comment){FactoryBot.create(:post_comment)}
+      let!(:post_comment){FactoryBot.create(:post_comment, user_id: user.id, post_id: post.id)}
       let!(:bravo){FactoryBot.create(:bravo, user_id: user.id, post_id: post.id)}
       before do
         visit commitments_path
@@ -143,6 +143,18 @@ RSpec.describe "Posts", type: :system do
             find(".fa-hiking").click
             expect(page).to have_css(".fa-hiking", :style => "color: #FF66CC;")
           end
+          it "Bravoを取り消すことができる" do
+            find(".fa-hiking").click
+            expect(page).to have_css(".fa-hiking")
+          end
+        end
+        context "commentに関するテスト" do
+          it "コメントができる" do
+            fill_in "post_comment[comment]", with: post_comment.comment
+            find('.fa-comment-dots').click
+            expect(page).to have_content post_comment.comment
+          end
+      
         end
       end
     end
