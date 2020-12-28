@@ -138,24 +138,6 @@ RSpec.describe "Posts", type: :system do
             expect(current_path).to eq commitment_path(commitment)
           end
         end
-        context "Bravoに関するテスト" do
-          it "Bravoができる" do
-            find(".fa-hiking").click
-            expect(page).to have_css(".fa-hiking", :style => "color: #FF66CC;")
-          end
-          it "Bravoを取り消すことができる" do
-            find(".fa-hiking").click
-            expect(page).to have_css(".fa-hiking")
-          end
-        end
-        context "commentに関するテスト" do
-          it "コメントができる" do
-            fill_in "post_comment[comment]", with: post_comment.comment
-            find('.fa-comment-dots').click
-            expect(page).to have_content post_comment.comment
-          end
-      
-        end
       end
     end
   end

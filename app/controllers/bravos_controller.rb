@@ -11,6 +11,9 @@ class BravosController < ApplicationController
   end
 
   def destroy
+    raise
+    puts "************************************"
+
     @post = Post.find(params[:post_id])
     @bravo = Bravo.find_by(post_id: params[:post_id], user_id: current_user.id)
     @bravo.destroy

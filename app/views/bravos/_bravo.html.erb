@@ -6,7 +6,7 @@
 	  </span>
   <% end %>
 <% else %>
-  <%= link_to post_bravos_path(post_id: post.id), method: :post, remote: true do %>
+  <%= link_to post_bravos_path(post_id: post.id), method: :post, remote: true, class: '' do %>
 	  <span class="bravo" style="color: black;">
 	    Bravo !! <i class="fas fa-hiking"></i>
 	  <%= post.bravos.count %>
