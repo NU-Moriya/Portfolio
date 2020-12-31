@@ -46,7 +46,8 @@
 - devise(ログイン)<br>
 - kaminari(ページネーション)<br>
 - dotenv-rails(環境変数)<br>
-- Refile(画像投稿)
+- Refile(画像投稿)<br>
+- Rubocop(リーダブルコード)
 
 ### テーブル定義書
 [詳細をみる](https://docs.google.com/spreadsheets/d/12dH_hzwtzXALE7hzrnb6iPMMWlVsFByG4Xu53JJ97II/edit#gid=0)
