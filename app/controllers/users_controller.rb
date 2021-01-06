@@ -62,12 +62,11 @@ class UsersController < ApplicationController
   private
 
   def ensure_correct_user
-    user = User.find(params[:id])
-    unless user == current_user
+    if current_user != User.find(params[:id])
       redirect_to user_path(current_user)
     end
   end
-  
+
   def check_guest
     user = User.find_by(account_name: "guest")
     if current_user == user
