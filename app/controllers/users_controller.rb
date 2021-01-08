@@ -68,8 +68,7 @@ class UsersController < ApplicationController
   end
 
   def check_guest
-    user = User.find_by(account_name: "guest")
-    if current_user == user
+    if current_user == User.find_by(account_name: "guest")
       redirect_to root_path, alert: 'ゲストユーザーの編集・削除はできません。'
     end
   end
