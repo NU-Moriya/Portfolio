@@ -9,7 +9,6 @@ class Commitment < ApplicationRecord
   end
 
   def self.search_for(content)
-    #Commitmentを省略
-    Where(['room_name LIKE ?', "%#{content}%"])
+    Commitment.where(['room_name LIKE ?', "%#{content}%"])
   end
 end
